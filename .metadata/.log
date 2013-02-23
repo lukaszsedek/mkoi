@@ -1,0 +1,59 @@
+!SESSION 2013-02-23 19:03:19.374 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_41
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=pl_PL
+Framework arguments:  -keyring /Users/lukaszsedek/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/lukaszsedek/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-23 19:03:53.787
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 4 4 2013-02-23 19:06:06.968
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2013-02-23 19:06:08.755 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_41
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=pl_PL
+Framework arguments:  -keyring /Users/lukaszsedek/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/lukaszsedek/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2013-02-23 19:06:17.219
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 4 4 2013-02-23 19:08:40.888
+!MESSAGE Invalid preference page path: XML Syntax
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2013-02-23 19:09:28.857
+!MESSAGE No valid Android XML Editor Delegate found for file /mkoi/pom.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:10:12.818
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:10:34.564
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:11:07.263
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:11:43.998
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:11:57.666
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:12:33.586
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:13:03.084
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:13:38.884
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:13:40.235
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-23 19:14:58.698
+!MESSAGE No projects found for [/Users/lukaszsedek/mkoi/mkoi/pom.xml]
