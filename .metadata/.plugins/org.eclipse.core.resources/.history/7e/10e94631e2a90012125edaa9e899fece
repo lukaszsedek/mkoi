@@ -1,0 +1,8 @@
+package pl.edu.pw.tele;
+
+public class Utils {
+	
+	public static String FILENAME_INTPUT;
+	public static StringBuffer InputBuffered;
+
+}

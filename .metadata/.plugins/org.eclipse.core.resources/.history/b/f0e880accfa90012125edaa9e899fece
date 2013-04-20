@@ -1,0 +1,11 @@
+package pl.edu.pw.tele.control;
+
+import java.awt.event.ActionListener;
+
+public class OpenFileAction implements ActionListener{
+	
+	public OpenFileAction() {
+		
+	}
+	
+}

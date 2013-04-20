@@ -1,0 +1,46 @@
+package pl.edu.pw.tele.frontend;
+
+import java.awt.Dimension;
+import java.awt.LayoutManager;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import pl.edu.pw.tele.Utils;
+
+
+/**
+ * 
+ * @author lukaszsedek
+ * GUI component for showing input text
+ */
+public class InputTextPane extends JPanel implements IInputTextPane{
+
+	protected JLabel title = new JLabel("dupa");
+	protected static JTextArea inputArea = new JTextArea(30, 10);
+	
+	public InputTextPane()
+	{
+		
+		setLayout((LayoutManager) new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		add(Box.createRigidArea(new Dimension(0,5)));
+		//setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		add(title);
+		
+		JScrollPane listScroller = new JScrollPane(inputArea);
+		inputArea.setText(Utils.Input);
+		listScroller.setPreferredSize(new Dimension(250, 15));
+		listScroller.setAlignmentX(LEFT_ALIGNMENT);
+		add(listScroller);
+	}
+	
+	public setText(String str)
+	{
+		
+	}
+}

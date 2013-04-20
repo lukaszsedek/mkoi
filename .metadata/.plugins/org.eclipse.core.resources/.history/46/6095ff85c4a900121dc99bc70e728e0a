@@ -1,0 +1,19 @@
+package pl.edu.pw.tele.frontend;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class ButtonsPane extends JPanel{
+
+	JButton finishProgram = null;
+	
+	public ButtonsPane()
+	{
+		// initialize variables
+		finishProgram = new JButton("ZakoÄcz");
+		
+		// add references to GUI layout
+		add(finishProgram);
+		
+	}
+}

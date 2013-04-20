@@ -1,0 +1,13 @@
+package pl.edu.pw.tele.threads;
+
+import java.util.logging.Logger;
+
+public class FileReadIO extends Thread{
+	Logger log  = Logger.getLogger(FileReadIO.class.getName());
+	
+	public void run()
+	{
+		log.info("THREAD!!!");
+	}
+
+}

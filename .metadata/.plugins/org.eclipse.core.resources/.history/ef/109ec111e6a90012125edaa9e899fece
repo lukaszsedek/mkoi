@@ -1,0 +1,12 @@
+package pl.edu.pw.tele;
+
+public class Utils {
+	
+	static{
+		InputBuffered = "";
+	}
+	
+	public static String FILENAME_INTPUT;
+	public static StringBuilder InputBuffered;
+
+}

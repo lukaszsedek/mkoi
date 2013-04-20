@@ -1,0 +1,13 @@
+package frontend;
+
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+public class MkoiContentPane extends JPanel {
+
+	public MkoiContentPane()
+	{
+		setBackground(Color.blue);
+	}
+}

@@ -1,0 +1,48 @@
+package pl.edu.pw.tele.threads;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
+
+import pl.edu.pw.tele.Utils;
+
+public class FileReadIO extends Thread{
+	Logger log  = Logger.getLogger(FileReadIO.class.getName());
+	
+	public void run()
+	{
+		log.log(Level.FINER, "Loading file " + Utils.FILENAME_INTPUT + " int progress...");
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(Utils.FILENAME_INTPUT));
+		
+	        StringBuilder sb = new StringBuilder();
+	        String line = br.readLine();
+
+	        while (line != null) {
+	            sb.append(line);
+	            sb.append("\n");
+	            line = br.readLine();
+	        }
+	        String everything = sb.toString();
+	    } catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+	        try {
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+	}
+
+}

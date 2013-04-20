@@ -1,0 +1,93 @@
+package pl.edu.pw.tele.frontend;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+/**
+ * Klasa g∏ównego okna. <br>
+ * Najwy˝ej w hierarchii
+ */
+public class MainFrame extends JFrame {
+
+	/**
+	 * SzerokoÊç okna. <br>
+	 * Zmieniana przez setFrameWidth()
+	 */
+	protected int _width = 800;
+	/**
+	 * WysokoÊç okna <br>
+	 * Zmieniana przez setFrameHigh()
+	 */
+	protected int _high = 600;
+	
+	/**
+	 * Tytu∏ okna
+	 */
+	protected final String title = "MKOI projekt";
+	
+	/**
+	 * Referencja na obiekt menu
+	 */
+	
+	MkoiMenu menu = null;
+	
+	/**
+	 * Main Panel
+	 */
+	
+	MkoiContentPane pane = null;
+	
+	public MainFrame()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(_width, _high);
+		
+		//Ustawia okno centralnie na monitorze
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		setLocation((dim.width-_width)/2, (dim.height-_high)/2);
+		
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
+		
+		setTitle(title);
+		//menu = new MkoiMenu();
+		//setJMenuBar(menu);
+		
+		/**
+		 * Dodaje domyÊlnà pow∏ok´ na Frame.
+		 * Nie u˝ywamy przecià˝ania Frame
+		 */
+		pane = new MkoiContentPane();
+		getContentPane().add(pane);
+	}
+	
+	/*
+	 * Ustawia szerokoÊç okna
+	 */
+	public void setFrameWidth(int w)
+	{
+		setSize(w, getHeight());
+	}
+	
+	public void setFrameHigh(int h)
+	{
+		setSize(getWidth(), h);
+	}
+	
+	
+	
+}

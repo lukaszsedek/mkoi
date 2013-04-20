@@ -1,0 +1,12 @@
+package pl.edu.pw.tele.frontend;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class ButtonsPane extends JPanel{
+
+	public ButtonsPane()
+	{
+		add(new JButton("ZakoÄcz"));
+	}
+}

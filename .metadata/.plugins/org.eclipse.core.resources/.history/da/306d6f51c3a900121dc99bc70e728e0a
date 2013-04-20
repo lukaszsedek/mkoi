@@ -1,0 +1,21 @@
+package frontend;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.LayoutManager;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+public class MkoiContentPane extends JPanel {
+
+	public MkoiContentPane()
+	{
+		setLayout(new BorderLayout());
+		//setBackground(Color.CYAN);
+		//Border border = BorderFactory.createBevelBorder(1, Color.BLACK, Color.BLUE);
+		//setBorder(border);
+		
+	}
+}

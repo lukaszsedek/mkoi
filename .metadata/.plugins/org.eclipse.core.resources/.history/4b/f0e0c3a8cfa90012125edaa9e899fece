@@ -1,0 +1,8 @@
+package pl.edu.pw.tele.control;
+
+public class OpenFileAction {
+	
+	public OpenFileAction() {
+		
+	}
+}

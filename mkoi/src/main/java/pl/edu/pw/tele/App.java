@@ -1,16 +1,15 @@
 package pl.edu.pw.tele;
 
-import frontend.MainFrame;
+import pl.edu.pw.tele.frontend.MainFrame;
 
 /**
- * Main Class
- *
+ * Starting Main Class <br>
+ * GUI thread scheduler
  */
 public class App 
 {
 	/**
-	 * W¸asny obiekt.<br>
-	 * Referencja do superklasy JFrame
+	 * Starting GUI class
 	 */
 	static MainFrame myFrame = null;
 	

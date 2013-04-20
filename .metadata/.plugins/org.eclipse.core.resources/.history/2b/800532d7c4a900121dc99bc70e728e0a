@@ -1,0 +1,8 @@
+package pl.edu.pw.tele.control;
+
+import java.awt.event.ActionListener;
+
+
+public class FinishAction implements ActionListener{
+
+}
