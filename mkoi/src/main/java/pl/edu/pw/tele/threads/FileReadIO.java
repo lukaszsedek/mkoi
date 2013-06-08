@@ -8,7 +8,12 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import pl.edu.pw.tele.Utils;
+import pl.edu.pw.tele.enigma.Enigma;
 import pl.edu.pw.tele.frontend.InputTextPane;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 
 public class FileReadIO implements Runnable{
 	Logger log  = Logger.getLogger(FileReadIO.class.getName());
@@ -18,32 +23,49 @@ public class FileReadIO implements Runnable{
 		log.info("constructing FileReadIO thread object");
 	}
 
-	@Override
+	
 	public void run() {
 		log.info( "Loading file " + Utils.FILENAME_INTPUT + " in progress...");
-		File file = new File(Utils.FILENAME_INTPUT);
+
 		
-		// pipe stream to file
+		Properties prop = new Properties();
+        FileInputStream fis;
 		try {
-			StringBuilder sb = new StringBuilder();
-		    String NL = System.getProperty("line.separator");
-		    Scanner scanner = new Scanner(new FileInputStream(Utils.FILENAME_INTPUT), "UTF-8");
-		    try {
-		      while (scanner.hasNextLine()){
-		        sb.append(scanner.nextLine() + NL);
-		      }
-		    }
-		    finally{
-		      scanner.close();
-		    }
-		    Utils.Input = sb.toString();
-		    InputTextPane.setText(Utils.Input);
+			fis = new FileInputStream(Utils.FILENAME_INTPUT);
+	        //loading properites from properties file
+	        prop.load(fis);
+
+	        Enigma enigma = Enigma.getInstance();
+	        
+	        log.info("ALFABET = " + prop.getProperty("alphabet"));
+	        
+	        // 1.  Wczytaj alfabet
+	        enigma.setAlphabet(prop.getProperty("alphabet").toCharArray());
+	        // 2. Wczytaj reflector
+	        enigma.createReflector(prop.getProperty("reflector"));
+	        // 3. Wczytaj rotory
+	        	        
+	        int rotorNbr = Integer.parseInt(prop.getProperty("liczba_rotorow"));
+	        
+	        enigma.setNbrRotors(rotorNbr);
+	        enigma.createRotors(rotorNbr);
+	        
+	        for(int i = 0 ; i < rotorNbr; ++i)
+	        {
+	        	log.info("rotor" + i + " = " + prop.getProperty("rotor" + i));
+	        	
+	        }
+	        
+	        fis.close();
 		} catch (FileNotFoundException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		
 		log.info("End of IO thread");
 	}
 	

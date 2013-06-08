@@ -1,0 +1,75 @@
+package pl.edu.pw.tele.enigma;
+
+import java.util.logging.Logger;
+
+/**
+ * 
+ * @author Lukasz
+ * Klasa, która odpowiada za przedstawienie reflektora
+ */
+public class Reflector implements ReflectorInterface {
+
+	Logger log = Logger.getLogger(Reflector.class.getName());
+
+	/**
+	 * Reflector jako tablica intów.
+	 */
+	protected char[] reflector;
+	
+	
+	
+	/**
+	 * Przechowywana wartoœæ d³ugoœci s³ownia.<br>
+	 * Jest to nic innego jak d³ugoœæ tablicy reflektora
+	 */
+	protected int size = 0;
+	
+	/**
+	 * Twór by konstruktor Reflektor(String,int) siê nie wywali³
+	 */
+	public Reflector()
+	{
+		//Musi byæ pusty. Nic nie implementujemy.
+	}
+	
+	/**
+	 * Konstruktor do wczytywania parametrów z pliku tekstowego
+	 */
+	public Reflector(String s, int i)
+	{
+		parse(s,i);
+	}
+	
+	/**
+	 * Parser. S³u¿y do wczytywania wartoœæi przez parametry aktualne
+	 */
+	@Override
+	public void parse(String s, int size) {
+		if (size <= 1)
+		{
+			log.info("Incorrect reflector size");
+			return;
+		}else
+		{	
+			reflector = new char[size];
+			log.info("REFLECTOR -------- " + s);
+			this.size = size;
+			
+			for (int i = 0; i < size ; ++i)
+			{
+				reflector[i] = s[i];
+			}
+		}
+	}
+
+	@Override
+	public int returnReflector(int i) throws Exception {
+		if (i >1 && i < size)
+			return reflector[i];
+		else{
+			throw new Exception("Incorrect pointer at reflector table");
+		}
+		
+	}
+
+}

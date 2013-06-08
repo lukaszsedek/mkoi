@@ -34,7 +34,6 @@ public class InputTextPane extends JPanel implements IInputTextPane{
 		add(title);
 		inputArea.setWrapStyleWord(true);
 		inputArea.setLineWrap(true);
-		inputArea.setEditable(false);
 		inputArea.setFocusable(false);
 		inputArea.setOpaque(false);
 		JScrollPane listScroller = new JScrollPane(inputArea);

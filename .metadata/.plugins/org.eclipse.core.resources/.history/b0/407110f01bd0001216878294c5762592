@@ -1,0 +1,34 @@
+package pl.edu.pw.tele.enigma;
+
+import java.util.logging.Logger;
+
+public class Reflector implements ReflectorInterface {
+
+	Logger log = Logger.getLogger(Reflector.class.getName());
+	protected int[] reflector;
+	protected int size= 0;
+	
+	@Override
+	public void parse(String s, int size) {
+		if (size <= 1)
+		{
+			log.info("Incorrect reflector size");
+			return;
+		}else
+		{	
+			reflector = new int[size];
+		}
+	}
+
+	@Override
+	public int returnReflector(int i) {
+		if (i >1 && i < size)
+			return reflector[i];
+		else{
+			throw new Exception("Incorrect pointer at reflector table");
+			return -1;
+		}
+		
+	}
+
+}

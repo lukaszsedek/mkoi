@@ -8,7 +8,7 @@ public class MkoiMenu extends JMenuBar {
 
 	// Plik
 	JMenu plik = new JMenu("plik");
-	JMenuItem zakoncz = new JMenuItem("ZakoÄcz");
+	JMenuItem zakoncz = new JMenuItem("Zakoncz");
 	//Pomoc
 	JMenu pomoc = new JMenu("Pomoc");
 	

@@ -8,15 +8,19 @@ import sun.util.logging.resources.logging;
 
 public class CipherAction{
 
+	
+	
+	
 	private CipherAction(){}
 	
 	public static ActionListener getActionListener()
 	{
 		return new ActionListener() {
 			
-			@Override
+			
 			public void actionPerformed(ActionEvent e) {
-				
+				Logger logger = Logger.getLogger(CipherAction.class.getName());
+				logger.info("Ciphering...");
 			}
 		};
 	}

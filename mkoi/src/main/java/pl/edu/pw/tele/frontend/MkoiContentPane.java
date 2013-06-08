@@ -13,6 +13,7 @@ public class MkoiContentPane extends JPanel {
 	ButtonsPane buttonsPane = new ButtonsPane();
 	InputTextPane inputTextPane = new InputTextPane();
 	TopPane topPane = new TopPane();
+	MKOICenter center = new MKOICenter();
 	
 	public MkoiContentPane()
 	{
@@ -24,6 +25,7 @@ public class MkoiContentPane extends JPanel {
 		add(BorderLayout.SOUTH, buttonsPane);
 		add(BorderLayout.WEST, inputTextPane);
 		add(BorderLayout.NORTH, topPane);
+		add(BorderLayout.CENTER, center);
 		
 	}
 

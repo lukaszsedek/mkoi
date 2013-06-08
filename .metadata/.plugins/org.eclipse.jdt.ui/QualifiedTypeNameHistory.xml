@@ -20,7 +20,17 @@
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 <fullyQualifiedTypeName name="com.sun.corba.se.spi.orbutil.fsm.Action"/>
 <fullyQualifiedTypeName name="pl.edu.pw.tele.control.FinishAction"/>
-<fullyQualifiedTypeName name="pl.edu.pw.tele.control.CipherAction"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.control.CipherAction"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.enigma.ReflectorInterface"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.threads.ParserThread"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.enigma.EnigmaInterface"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.enigma.Reflector"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.enigma.RotorInterface"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.sun.istack.internal.logging.Logger"/>
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="pl.edu.pw.tele.enigma.Enigma"/>
 </qualifiedTypeNameHistroy>

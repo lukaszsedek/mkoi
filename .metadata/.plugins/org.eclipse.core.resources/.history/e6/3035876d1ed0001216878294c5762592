@@ -1,0 +1,14 @@
+package pl.edu.pw.tele.threads;
+
+import java.util.logging.Logger;
+
+public class ParserThread implements Runnable{
+
+	Logger log = Logger.getLogger(ParserThread.class.getName());
+	
+	@Override
+	public void run() {
+		
+	}
+
+}

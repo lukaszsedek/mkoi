@@ -1,0 +1,17 @@
+package pl.edu.pw.tele.enigma;
+
+import java.util.ArrayList;
+
+/**
+ * Klasa reprezentuj¹ca wszystkie elementy Enigmy.<br>
+ * Reprezentuje maszynê enigma<br>
+ * 
+ * @author Lukasz
+ *
+ */
+public class Enigma implements EnigmaInterface{
+
+	protected Reflector reflector = null;
+	protected ArrayList<Rotor> rotors = null;
+	
+}

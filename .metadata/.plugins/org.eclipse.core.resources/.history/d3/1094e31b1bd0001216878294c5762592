@@ -1,0 +1,22 @@
+package pl.edu.pw.tele.enigma;
+
+public class Reflector implements ReflectorInterface {
+
+	private String s;
+
+	protected 
+	
+	@Override
+	public void parse(String s) {
+		this.s = s;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int returnReflector(int i) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,5 @@
+package pl.edu.pw.tele.enigma;
+
+public class Reflector implements ReflectorInterface {
+
+}

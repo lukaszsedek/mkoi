@@ -17,7 +17,7 @@ public class FinishAction implements ActionListener {
 	{
 	}
 	
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		log.info("Quit");
 		System.exit(0);

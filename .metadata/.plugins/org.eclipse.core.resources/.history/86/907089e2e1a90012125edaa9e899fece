@@ -1,7 +1,0 @@
-package pl.edu.pw.tele;
-
-public class Ulits {
-	
-	public static String FILENAME_INTPUT;
-
-}

@@ -1,0 +1,8 @@
+package pl.edu.pw.tele.enigma;
+
+public class Enigma implements EnigmaInterface{
+
+	protected Reflector reflector = null;
+	
+	
+}

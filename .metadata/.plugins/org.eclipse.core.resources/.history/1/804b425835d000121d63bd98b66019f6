@@ -1,0 +1,32 @@
+package pl.edu.pw.tele.frontend;
+
+import java.util.ArrayList;
+
+import javax.print.attribute.standard.MediaSize.Engineering;
+import javax.swing.JList;
+import javax.swing.JPanel;
+
+import pl.edu.pw.tele.enigma.Enigma;
+import pl.edu.pw.tele.enigma.Reflector;
+
+public class MKOICenter extends JPanel {
+	
+	protected JList nameList;
+	
+	protected ArrayList<JList> rotorsView = new ArrayList<JList>();
+	
+	protected String[] dupa = new String[]{"empty"};
+
+	protected String[] rotorAlhpabet;
+	
+	
+	public MKOICenter()
+	{
+		
+		nameList = new JList(dupa);
+		add(nameList);
+		
+		
+	}
+			
+}
