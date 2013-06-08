@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @author Lukasz
  * 
  */
-public  class Enigma implements EnigmaInterface {
+public final class Enigma implements EnigmaInterface {
 
 	{
 		alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
@@ -30,9 +30,8 @@ public  class Enigma implements EnigmaInterface {
 	private static volatile Enigma instance = null;
 	protected char[] alphabet = null;
 	protected Reflector reflector = null;
-	Rotor rotor1;
-	Rotor rotor2;
-	Rotor rotor3;
+	protected ArrayList<Rotor> rotors = null;
+	protected int size = 0;
 
 	public Reflector getReflector() {
 		return reflector;
@@ -42,31 +41,20 @@ public  class Enigma implements EnigmaInterface {
 		this.reflector = reflector;
 	}
 
-
-
-
-	public Rotor getRotor1() {
-		return rotor1;
+	public ArrayList<Rotor> getRotors() {
+		return rotors;
 	}
 
-	public void setRotor1(String rotor1) {
-		this.rotor1 = new Rotor(rotor1);
+	public void setRotors(ArrayList<Rotor> rotors) {
+		this.rotors = rotors;
 	}
 
-	public Rotor getRotor2() {
-		return rotor2;
+	public int getSize() {
+		return size;
 	}
 
-	public void setRotor2(String rotor2) {
-		this.rotor2 = new Rotor(rotor2);
-	}
-
-	public Rotor getRotor3() {
-		return rotor3;
-	}
-
-	public void setRotor3(String rotor3) {
-		this.rotor3 = new Rotor(rotor3);
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	/**
@@ -111,5 +99,26 @@ public  class Enigma implements EnigmaInterface {
 
 	}
 
+	@Override
+	public void createRotors(int i) {
+		if (i < 1)
+			return;
+		else
+			rotors = new ArrayList<Rotor>(i);
+	}
 
+	@Override
+	public void setNbrRotors(int i) {
+		size = i;
+	}
+
+	@Override
+	public int getNbrRotors() {
+		return size;
+	}
+
+	@Override
+	public void setRotor(int i, String s) {
+		rotors.set(i, new Rotor(s));
+	}
 }

@@ -10,15 +10,13 @@ import java.util.logging.Logger;
 import pl.edu.pw.tele.Utils;
 import pl.edu.pw.tele.enigma.Enigma;
 import pl.edu.pw.tele.frontend.InputTextPane;
-import pl.edu.pw.tele.frontend.MKOICenter;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 
-public class FileReadIO {
-	static Logger log  = Logger.getLogger(FileReadIO.class.getName());
+public class FileReadIO implements Runnable{
+	Logger log  = Logger.getLogger(FileReadIO.class.getName());
 	
 	public FileReadIO()
 	{
@@ -26,7 +24,7 @@ public class FileReadIO {
 	}
 
 	
-	public static void go() {
+	public void run() {
 		log.info( "Loading file " + Utils.FILENAME_INTPUT + " in progress...");
 
 		
@@ -47,10 +45,18 @@ public class FileReadIO {
 	        enigma.createReflector(prop.getProperty("reflector"));
 	        // 3. Wczytaj rotory
 	        	        
-	       enigma.setRotor1(prop.getProperty("rotor0"));
-	       enigma.setRotor2(prop.getProperty("rotor1"));
-	       enigma.setRotor3(prop.getProperty("rotor2"));
-	       
+	        int rotorNbr = Integer.parseInt(prop.getProperty("liczba_rotorow"));
+	        
+	        enigma.setNbrRotors(rotorNbr);
+	        enigma.createRotors(rotorNbr);
+	        
+	        for(int i = 0 ; i < rotorNbr; ++i)
+	        {
+	        	log.info("rotor" + i + " = " + prop.getProperty("rotor" + i));
+	        	enigma.set
+	        	
+	        }
+	        
 	        fis.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -60,8 +66,6 @@ public class FileReadIO {
 			e.printStackTrace();
 		}
 
-
-		MKOICenter.reload();
 		
 		log.info("End of IO thread");
 	}

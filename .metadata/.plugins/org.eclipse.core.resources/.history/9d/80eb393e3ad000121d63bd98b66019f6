@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @author Lukasz
  * 
  */
-public  class Enigma implements EnigmaInterface {
+public final class Enigma implements EnigmaInterface {
 
 	{
 		alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
@@ -111,5 +111,16 @@ public  class Enigma implements EnigmaInterface {
 
 	}
 
+	@Override
+	public void createRotors(int i) {
+		if (i < 1)
+			return;
+		else
+			rotors = new ArrayList<Rotor>(i);
+	}
 
+	@Override
+	public void setRotor(int i, String s) {
+		rotors.set(i, new Rotor(s));
+	}
 }
