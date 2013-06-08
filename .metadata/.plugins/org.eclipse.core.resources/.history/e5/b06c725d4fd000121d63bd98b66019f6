@@ -1,0 +1,152 @@
+package pl.edu.pw.tele.frontend;
+
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Logger;
+
+import javax.print.attribute.standard.MediaSize.Engineering;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.ListModel;
+import javax.swing.plaf.SliderUI;
+
+import pl.edu.pw.tele.Utils;
+import pl.edu.pw.tele.enigma.Enigma;
+import pl.edu.pw.tele.enigma.Reflector;
+import pl.edu.pw.tele.enigma.Rotor;
+
+public class MKOICenter extends JPanel {
+
+	static Logger log = Logger.getLogger(MKOICenter.class.getName());
+	static JList reflectorAl;
+	static JList reflector;
+	protected static JList rotor1;
+	protected static JList rotor1Al;
+	protected static JList rotor2;
+	protected static JList rotor2Al;
+	protected static JList rotor3;
+
+	static JList rotor3Al;
+
+	static public DefaultListModel lmRefAl;
+	static public DefaultListModel lmRef;
+	static public DefaultListModel lmRot1;
+	static public DefaultListModel lmRot1Al;
+	static public DefaultListModel lmRot2;
+	static public DefaultListModel lmRot2Al;
+	static public DefaultListModel lmRot3;
+	static public DefaultListModel lmRot3Al;
+
+	static String[] dupa = new String[] { "empty", "empty", "empty", "empty" };
+
+	public MKOICenter() {
+
+		lmRefAl = new DefaultListModel();
+		lmRef = new DefaultListModel();
+		lmRot1 = new DefaultListModel();
+		lmRot1Al = new DefaultListModel();
+		lmRot2 = new DefaultListModel();
+		lmRot2Al = new DefaultListModel();
+		lmRot3 = new DefaultListModel();
+		lmRot3Al = new DefaultListModel();
+
+		// REFLECTOR
+		reflector = new JList(lmRef);
+		reflectorAl = new JList(lmRefAl);
+		add(reflector);
+		add(reflectorAl);
+		add(new JLabel("    "));
+
+		// ROTOR 1
+		rotor1 = new JList(lmRot1);
+		rotor1Al = new JList(lmRot1Al);
+		add(rotor1);
+		add(rotor1Al);
+		add(new JLabel("    "));
+
+		// ROTOR 2
+		rotor2 = new JList(lmRot2);
+		rotor2Al = new JList(lmRot2Al);
+		add(rotor2);
+		add(rotor2Al);
+		add(new JLabel("    "));
+
+		// ROTOR3
+		rotor3 = new JList(lmRot3Al);
+		rotor3Al = new JList(lmRot3Al);
+		add(rotor3Al);
+		add(rotor3);
+
+	}
+
+	public static void reload() {
+		log.info("dodawanie reflectora");
+		/**
+		 * 
+		 */
+		Enigma enigma = Enigma.getInstance();
+		Reflector ref = enigma.getReflector();
+
+		log.info("REF.SIZE=" + ref.getAlfabet().length);
+		char[] alfabet = ref.getAlfabet();
+		for (int i = 0; i < alfabet.length; i++) {
+
+			lmRefAl.addElement(alfabet[i]);
+		}
+		/**
+		 * Dowanianie reflektora
+		 */
+		char[] reflector = ref.getReflector();
+		for (int i = 0; i < reflector.length; i++) {
+
+			lmRef.addElement(reflector[i]);
+		}
+
+		reflectorAl.setSelectedIndex(4);
+
+		/**
+		 * Dodawanie rotora 1
+		 */
+
+		Rotor rotor1 = enigma.getRotor1();
+		int rot1Size = rotor1.getSize();
+		char[] _rotor1 = new char[rot1Size];
+		_rotor1 = rotor1.getRotor();
+		char[] _rotor1al = rotor1.getAlphabet();
+
+		for (int i = 0; i < rot1Size; ++i) {
+			lmRot1.addElement(_rotor1[i]);
+			lmRot1Al.addElement(_rotor1al[i]);
+		}
+
+		// ROTOR 2
+		Rotor rotor2 = enigma.getRotor2();
+		int rot2Size = rotor2.getSize();
+		char[] _rotor2 = new char[rot1Size];
+		_rotor1 = rotor2.getRotor();
+		char[] _rotor2al = rotor2.getAlphabet();
+
+		for (int i = 0; i < rot2Size; ++i) {
+			lmRot2.addElement(_rotor2[i]);
+			lmRot2Al.addElement(_rotor2al[i]);
+		}
+
+		// ROTOR 3
+		Rotor rotor3 = enigma.getRotor3();
+		int rot3Size = rotor3.getSize();
+		char[] _rotor3 = new char[rot1Size];
+		_rotor1 = rotor2.getRotor();
+		char[] _rotor3al = rotor2.getAlphabet();
+
+		for (int i = 0; i < rot3Size; ++i) {
+			lmRot3.addElement(_rotor2[i]);
+			lmRot2Al.addElement(_rotor2al[i]);
+		}
+
+	}
+}

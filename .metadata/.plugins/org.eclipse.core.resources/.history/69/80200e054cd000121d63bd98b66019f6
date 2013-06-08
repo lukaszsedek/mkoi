@@ -1,0 +1,108 @@
+package pl.edu.pw.tele.frontend;
+
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Logger;
+
+import javax.print.attribute.standard.MediaSize.Engineering;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.ListModel;
+import javax.swing.plaf.SliderUI;
+
+import pl.edu.pw.tele.Utils;
+import pl.edu.pw.tele.enigma.Enigma;
+import pl.edu.pw.tele.enigma.Reflector;
+
+public class MKOICenter extends JPanel  {
+
+	static Logger log = Logger.getLogger(MKOICenter.class.getName());
+	static JList reflectorAl;
+	static JList reflector;
+	protected static JList rotor1;
+	protected static JList rotor1Al;
+	protected static JList rotor2;
+	protected static JList rotor2Al;
+	protected static JList rotor3;
+
+	static JList rotor3Al;
+
+	static public DefaultListModel lmRefAl;
+	static public DefaultListModel lmRef;
+
+
+	static String[] dupa = new String[] { "empty", "empty", "empty", "empty" };
+
+	public MKOICenter() {
+		
+		
+		lmRefAl = new DefaultListModel();
+		lmRef = new DefaultListModel();
+		reflector = new JList(lmRef);
+		reflectorAl = new JList(lmRefAl);
+		add(reflectorAl);
+		add(reflector);
+		add(new JLabel("    "));
+		
+
+		rotor1 = new JList(dupa);
+		
+		rotor1Al = new JList(dupa);
+		add(rotor1Al);
+		add(rotor1);
+
+		add(new JLabel("    "));
+
+		rotor2 = new JList(dupa);
+		rotor2Al = new JList(dupa);
+		add(rotor2Al);
+		add(rotor2);
+
+		add(new JLabel("    "));
+
+		rotor3 = new JList(dupa);
+		rotor3Al = new JList(dupa);
+		add(rotor3Al);
+		add(rotor3);
+
+
+	}
+
+	public static void reload()
+	{
+		log.info("dodawanie reflectora");
+		/**
+		 * 
+		 */
+		Enigma enigma = Enigma.getInstance();
+		Reflector ref = enigma.getReflector();
+		
+		log.info("REF.SIZE=" + ref.getAlfabet().length);
+		char[] alfabet = ref.getAlfabet();
+		for(int i = 0 ; i < alfabet.length; i++)
+		{
+			
+			lmRefAl.addElement(alfabet[i]);
+		}
+		/**
+		 * Dowanianie reflektora
+		 */
+		char[] reflector = ref.getReflector();
+		for(int i = 0 ; i < reflector.length; i++)
+		{
+			
+			lmRef.addElement(reflector[i]);
+		}
+		
+		reflectorAl.setSelectedIndex(4);
+		
+		/**
+		 * Dodawanie rotora 1
+		 */
+	}
+}

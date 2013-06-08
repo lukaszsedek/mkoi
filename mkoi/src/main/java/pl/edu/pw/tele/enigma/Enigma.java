@@ -49,24 +49,24 @@ public  class Enigma implements EnigmaInterface {
 		return rotor1;
 	}
 
-	public void setRotor1(String rotor1) {
-		this.rotor1 = new Rotor(rotor1);
+	public void setRotor1(String rotor1, String start) {
+		this.rotor1 = new Rotor(rotor1, start);
 	}
 
 	public Rotor getRotor2() {
 		return rotor2;
 	}
 
-	public void setRotor2(String rotor2) {
-		this.rotor2 = new Rotor(rotor2);
+	public void setRotor2(String rotor2, String start) {
+		this.rotor2 = new Rotor(rotor2, start);
 	}
 
 	public Rotor getRotor3() {
 		return rotor3;
 	}
 
-	public void setRotor3(String rotor3) {
-		this.rotor3 = new Rotor(rotor3);
+	public void setRotor3(String rotor3, String start) {
+		this.rotor3 = new Rotor(rotor3, start);
 	}
 
 	/**

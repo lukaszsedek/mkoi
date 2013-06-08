@@ -2,11 +2,11 @@ package pl.edu.pw.tele;
 
 public class Utils {
 	
-	static{
-		Input = new String("test");
-	}
+
 	
 	public static String FILENAME_INTPUT;
-	public static String Input;
+	public static StringBuffer Input = new StringBuffer();
+	public static StringBuffer Output = new StringBuffer();
+	public static boolean LOADED = false;
 
 }

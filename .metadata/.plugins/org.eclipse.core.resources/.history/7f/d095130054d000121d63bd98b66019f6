@@ -1,0 +1,14 @@
+package pl.edu.pw.tele.frontend;
+
+import java.util.logging.Logger;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class OutputTextPane extends JPanel {
+	Logger log = Logger.getLogger(InputTextPane.class.getName());
+	protected JLabel title = new JLabel("Output text");
+	protected static JTextArea inputArea = new JTextArea(20, 10);
+	
+}

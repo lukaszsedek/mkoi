@@ -1,0 +1,50 @@
+package pl.edu.pw.tele.frontend;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import javax.print.attribute.standard.MediaSize.Engineering;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.plaf.SliderUI;
+
+import pl.edu.pw.tele.enigma.Enigma;
+import pl.edu.pw.tele.enigma.Reflector;
+
+public class MKOICenter extends JPanel implements Runnable{
+	
+	Logger log = Logger.getLogger(MKOICenter.class.getName());
+	protected JList nameList;
+	
+	protected String[] dupa = new String[]{"empty", "empty", "empty", "empty"};
+
+	
+	public MKOICenter()
+	{
+		Thread paintThread = new Thread(this);
+		paintThread.start();
+		try {
+			paintThread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		nameList = new JList(dupa);
+		add(nameList);
+		
+	}
+
+
+	@Override
+	public void run() {
+		/*while(true)
+		{
+			log.info("PAINT THREAD");
+		}*/
+	}
+
+
+			
+}
