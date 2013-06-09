@@ -1,0 +1,11 @@
+# TEST
+rozmiar = 26
+alphabet = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+reflector = YRUHQSLDPXNGOKMIEBFZCWVJAT
+liczba_rotorow = 3
+rotor0 = EKMFLGDQVZNTOWYHXUSPAIBRCJ
+rotor0_start = P
+rotor1 = AJDKSIRUXBLHWTMCQGZNPYFVOE
+rotor1_start = Z
+rotor2 = BDFHJLCPRTXVZNYEIWGAKMUSQO
+rotor2_start = P

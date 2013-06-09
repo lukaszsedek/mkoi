@@ -44,24 +44,24 @@ public  class Enigma implements EnigmaInterface {
 		return rotor1;
 	}
 
-	public void setRotor1(String rotor1, String start) {
-		this.rotor1 = new Rotor(rotor1, start);
+	public void setRotor1(String rotor1, String start, String turn) {
+		this.rotor1 = new Rotor(rotor1, start, turn);
 	}
 
 	public Rotor getRotor2() {
 		return rotor2;
 	}
 
-	public void setRotor2(String rotor2, String start) {
-		this.rotor2 = new Rotor(rotor2, start);
+	public void setRotor2(String rotor2, String start, String turn) {
+		this.rotor2 = new Rotor(rotor2, start, turn);
 	}
 
 	public Rotor getRotor3() {
 		return rotor3;
 	}
 
-	public void setRotor3(String rotor3, String start) {
-		this.rotor3 = new Rotor(rotor3, start);
+	public void setRotor3(String rotor3, String start, String turn) {
+		this.rotor3 = new Rotor(rotor3, start, turn);
 	}
 
 	/**
@@ -107,10 +107,42 @@ public  class Enigma implements EnigmaInterface {
 	}
 
 	@Override
-	public void cipher(char s) {
-		log.info("cipher " + s);
-		rotor1.move();
+	public char cipher(char s) {
+		
+            rotate();
+            
+            s = rotor3.conversion(s);
+            s = rotor2.conversion(s);          
+            s = rotor1.conversion(s);            
+            s = reflector.conversion(s);            
+            s = rotor1.conversionInvert(s);            
+            s = rotor2.conversionInvert(s);           
+            s = rotor3.conversionInvert(s);
+           
+
+            return s;
 	}
+        
+        private void rotate()
+        {
+            rotor3.move();
+            
+                        
+            if( rotor3.getPosition() == rotor3.getTurnoverPositions() )
+            {         
+                rotor2.move();
+                log.info("rotore 2 + 1: ");
+            }
+            
+            if( rotor2.getPosition()== rotor2.getTurnoverPositions() && rotor2.getCount() > 25 )
+            {
+                log.info("rotore1 move");
+                rotor1.move();
+                rotor2.restart();
+            }
+            
+            
+        }
 
 
 }

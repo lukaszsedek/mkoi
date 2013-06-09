@@ -58,7 +58,7 @@ public class Reflector implements ReflectorInterface {
 	}
 
 
-
+        
 
 
 	public ArrayList<String> getReflector() {
@@ -84,7 +84,27 @@ public class Reflector implements ReflectorInterface {
 	public void setSize(int size) {
 		this.size = size;
 	}
-
+        
+        @Override
+        public char conversion(char c)
+        {   
+            int index= -1;
+            for(int i = 0 ; i < alphabet.size(); ++i)
+		{       
+                        
+			if(Character.toString(c).equals(alphabet.get(i)))
+			{
+				index = i;
+			}
+		}
+            
+            if(index < 0 )
+            {
+                log.info("Nie ma takiego znaku w alfabecie. !! uwaga ma³a litera !!");
+            }
+            
+            return reflector.get(index).charAt(0);
+        }
 
 
 }

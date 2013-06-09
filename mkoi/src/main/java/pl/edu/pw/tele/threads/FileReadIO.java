@@ -55,9 +55,9 @@ public class FileReadIO {
 	        enigma.createReflector(prop.getProperty("reflector"));
 	        // 3. Wczytaj rotory
 	        	        
-	       enigma.setRotor1(prop.getProperty("rotor0"), prop.getProperty("rotor0_start"));
-	       enigma.setRotor2(prop.getProperty("rotor1"), prop.getProperty("rotor1_start"));
-	       enigma.setRotor3(prop.getProperty("rotor2"), prop.getProperty("rotor2_start"));
+	       enigma.setRotor1(prop.getProperty("rotor0"), prop.getProperty("rotor0_start"), prop.getProperty("rotor0_turn"));
+	       enigma.setRotor2(prop.getProperty("rotor1"), prop.getProperty("rotor1_start"), prop.getProperty("rotor1_turn"));
+	       enigma.setRotor3(prop.getProperty("rotor2"), prop.getProperty("rotor2_start"), prop.getProperty("rotor2_turn"));
 	       
 	        fis.close();
 		} catch (FileNotFoundException e) {

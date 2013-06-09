@@ -54,10 +54,10 @@ public class InputTextPane extends JPanel implements IInputTextPane{
 			@Override
 			public void keyTyped(KeyEvent arg0) {
 				
-				log.info("" + ((int)arg0.getKeyChar()));
+				//log.info("" + ((int)arg0.getKeyChar()));
 				if (arg0.getKeyChar() >= 65 & arg0.getKeyChar() <= 90)
 				{
-					log.info("duze " + arg0.getKeyChar());
+					//log.info("duze " + arg0.getKeyChar());
 					Character chara = Character.valueOf(arg0.getKeyChar());
 					chara = chara.toUpperCase(chara.charValue());
 					cipher(chara.charValue());
@@ -88,7 +88,9 @@ public class InputTextPane extends JPanel implements IInputTextPane{
 	public static void cipher(char c)
 	{
 		Enigma enigma = Enigma.getInstance();
-		enigma.cipher(c);
+		
+              //  enigma.cipher(c);
+               System.out.println(enigma.cipher(c));
 	}
 	
 	public static void setText(String str)
