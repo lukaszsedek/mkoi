@@ -20,7 +20,6 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pl.edu.pw.tele.Utils;
-import pl.edu.pw.tele.control.CipherAction;
 import pl.edu.pw.tele.control.FinishAction;
 import pl.edu.pw.tele.control.OpenFileAction;
 import pl.edu.pw.tele.threads.FileReadIO;
@@ -95,9 +94,9 @@ public class ButtonsPane extends JPanel{
 		  JButton button = new JButton(text);
 		  button.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
 		  button.setHorizontalAlignment(JButton.LEADING); // optional
-		  button.setBorderPainted(false);
+	//	  button.setBorderPainted(false);
 		  button.setBackground(Color.ORANGE);
-		  button.setContentAreaFilled(false);
+//		  button.setContentAreaFilled(false);
 		  return button;
 		}
 }

@@ -1,5 +1,6 @@
 package pl.edu.pw.tele.enigma;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -14,8 +15,8 @@ public class Reflector implements ReflectorInterface {
 	/**
 	 * Reflector jako tablica intów.
 	 */
-	protected char[] reflector;
-	protected char[] alfabet;
+	protected ArrayList<String> reflector = new ArrayList<String>();
+	protected ArrayList<String> alphabet = Enigma.getInstance().getAlphabet();
 	
 	
 	
@@ -46,32 +47,34 @@ public class Reflector implements ReflectorInterface {
 	 */
 	@Override
 	public void parse(String s) {
-		alfabet = Enigma.getInstance().getAlphabet();
-		log.info("Reflector.alfabet = " + alfabet.toString());
+		log.info("Reflector.alfabet = " + alphabet.toString());
+		log.info("Reflector.s = " + s);
+		for(int i = 0 ; i < s.length(); i++)
+		{
+			reflector.add(String.valueOf(s.charAt(i)));
+		}
 		
-		int size = Enigma.getInstance().alphabet.length;
-		log.info("Reflector.size = " + size);
-		
-		reflector = new char[size];
-		reflector = s.toCharArray();
-		
-		
+		log.info("Reflector.reflector = " + reflector.toString());
 	}
 
-	public char[] getReflector() {
+
+
+
+
+	public ArrayList<String> getReflector() {
 		return reflector;
 	}
 
-	public void setReflector(char[] reflector) {
+	public void setReflector(ArrayList<String> reflector) {
 		this.reflector = reflector;
 	}
 
-	public char[] getAlfabet() {
-		return alfabet;
+	public ArrayList<String> getAlphabet() {
+		return alphabet;
 	}
 
-	public void setAlfabet(char[] alfabet) {
-		this.alfabet = alfabet;
+	public void setAlphabet(ArrayList<String> alphabet) {
+		this.alphabet = alphabet;
 	}
 
 	public int getSize() {
@@ -82,14 +85,6 @@ public class Reflector implements ReflectorInterface {
 		this.size = size;
 	}
 
-	@Override
-	public int returnReflector(int i) throws Exception {
-		if (i >1 && i < size)
-			return reflector[i];
-		else{
-			throw new Exception("Incorrect pointer at reflector table");
-		}
-		
-	}
+
 
 }

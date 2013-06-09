@@ -13,11 +13,6 @@ import java.util.logging.Logger;
  */
 public  class Enigma implements EnigmaInterface {
 
-	{
-		alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
-				'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-				'V', 'W', 'X', 'Y', 'Z' };
-	}
 
 	/**
 	 * <b>LOG4J</b>
@@ -28,7 +23,7 @@ public  class Enigma implements EnigmaInterface {
 	 * Signleton instance
 	 */
 	private static volatile Enigma instance = null;
-	protected char[] alphabet = null;
+	protected ArrayList<String> alphabet = null;
 	protected Reflector reflector = null;
 	Rotor rotor1;
 	Rotor rotor2;
@@ -95,12 +90,12 @@ public  class Enigma implements EnigmaInterface {
 
 	}
 
-	public char[] getAlphabet() {
+	public ArrayList<String> getAlphabet() {
 		return alphabet;
 	}
 
-	public void setAlphabet(char[] alphabet) {
-		this.alphabet = alphabet;
+	public void setAlphabet(ArrayList<String> arraylist) {
+		this.alphabet = arraylist;
 
 	}
 
@@ -109,6 +104,12 @@ public  class Enigma implements EnigmaInterface {
 		log.info("Reflector.createReflector");
 		reflector = new Reflector(s);
 
+	}
+
+	@Override
+	public void cipher(char s) {
+		log.info("cipher " + s);
+		rotor1.move();
 	}
 
 

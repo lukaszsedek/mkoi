@@ -1,0 +1,94 @@
+package pl.edu.pw.tele.enigma;
+
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+/**
+ * 
+ * @author Lukasz
+ * Klasa, która odpowiada za przedstawienie reflektora
+ */
+public class Reflector implements ReflectorInterface {
+
+	Logger log = Logger.getLogger(Reflector.class.getName());
+
+	/**
+	 * Reflector jako tablica intów.
+	 */
+	protected ArrayList<String> reflector;
+	protected ArrayList<String> alphabet = Enigma.getInstance().getAlphabet();
+	
+	
+	
+	/**
+	 * Przechowywana wartoœæ d³ugoœci s³ownia.<br>
+	 * Jest to nic innego jak d³ugoœæ tablicy reflektora
+	 */
+	protected int size = 0;
+	
+	/**
+	 * Twór by konstruktor Reflektor(String,int) siê nie wywali³
+	 */
+	public Reflector()
+	{
+		//Musi byæ pusty. Nic nie implementujemy.
+	}
+	
+	/**
+	 * Konstruktor do wczytywania parametrów z pliku tekstowego
+	 */
+	public Reflector(String s)
+	{
+		parse(s);
+	}
+	
+	/**
+	 * Parser. S³u¿y do wczytywania wartoœæi przez parametry aktualne
+	 */
+	@Override
+	public void parse(String s) {
+		log.info("Reflector.alfabet = " + alphabet.toString());
+		
+		char[] tempReflector = new char[alphabet.size()];
+		tempReflector = s.toCharArray();
+		
+		for(int i = 0; i < tempReflector.length; i++)
+		{
+			reflector.add(String.valueOf(tempReflector[i]));
+		}
+		
+		log.info("Reflector.reflector = " + reflector.toString());
+		
+	}
+
+
+
+
+
+	public ArrayList<String> getReflector() {
+		return reflector;
+	}
+
+	public void setReflector(ArrayList<String> reflector) {
+		this.reflector = reflector;
+	}
+
+	public ArrayList<String> getAlphabet() {
+		return alphabet;
+	}
+
+	public void setAlphabet(ArrayList<String> alphabet) {
+		this.alphabet = alphabet;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+
+
+}

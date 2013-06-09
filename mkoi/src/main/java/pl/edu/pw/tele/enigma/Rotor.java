@@ -1,6 +1,9 @@
 package pl.edu.pw.tele.enigma;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import pl.edu.pw.tele.frontend.MKOICenter;
 
 /**
  * 
@@ -10,32 +13,43 @@ import java.util.logging.Logger;
 public class Rotor implements RotorInterface{
 
 	Logger log = Logger.getLogger(Rotor.class.getName());
-	char[] rotor;
-	char[] alphabet;
 	int position = 0;
+	
+	/**
+	 * reprezentacja alfabetu
+	 */
+	ArrayList<String> alphabetList = Enigma.getInstance().alphabet;
+	
+	/**
+	 * reprezentacja rotora
+	 */
+	ArrayList<String> rotor = new ArrayList<String>();
 	
 	public Rotor(){}
 	
-	public Rotor(String s, String poz){
-		log.info("Tworzenie rotora..." + s + " pozycja " + poz);
-		rotor = s.toCharArray();
-		Enigma enigma = Enigma.getInstance();
-		alphabet = enigma.getAlphabet();
+	public Rotor(String settings, String poz){
+		log.info("Tworzenie rotora..." + settings + " pozycja " + poz);
+		for(int i = 0 ; i < settings.length(); i++)
 		
-		char c = poz.toCharArray()[0];
-		for(int i = 0 ; i < alphabet.length ; ++i )
 		{
-			if( alphabet[i] == c)
+			rotor.add(String.valueOf(settings.charAt(i)));
+		}
+		log.info("ROTOR = " + rotor.toString());
+		
+		for(int i = 0 ; i < alphabetList.size(); ++i)
+		{
+			if(poz.equals(alphabetList.get(i)))
 			{
-				log.info("znaleziono " + i + " = " + c);
-				this.position = i;
+				position = i;
 			}
 		}
+		
+		log.info("ROTOR.position = " + this.position);
 	}
 
 	@Override
 	public int getSize() {
-		return rotor.length;
+		return rotor.size();
 	}
 
 	public int getPosition() {
@@ -46,16 +60,20 @@ public class Rotor implements RotorInterface{
 		this.position = position;
 	}
 
-	public char[] getAlphabet() {
-		return alphabet;
+
+
+	public ArrayList<String> getAlphabetList() {
+		return alphabetList;
 	}
 
-	public void setAlphabet(char[] alphabet) {
-		this.alphabet = alphabet;
+	public void setAlphabetList(ArrayList<String> alphabetList) {
+		this.alphabetList = alphabetList;
 	}
 
-	@Override
-	public char[] getRotor() {
-		return rotor;
+	
+	public void  move()
+	{
+		position++;
+		
 	}
 }

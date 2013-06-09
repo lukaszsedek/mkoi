@@ -8,4 +8,5 @@ public interface EnigmaInterface {
 	 * @param i d³ugoœæ alfabetu
 	 */
 	void createReflector(String s);
+	void cipher(char s);
 }

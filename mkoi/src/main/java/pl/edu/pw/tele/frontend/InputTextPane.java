@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import pl.edu.pw.tele.Utils;
+import pl.edu.pw.tele.enigma.Enigma;
 
 
 /**
@@ -57,12 +58,15 @@ public class InputTextPane extends JPanel implements IInputTextPane{
 				if (arg0.getKeyChar() >= 65 & arg0.getKeyChar() <= 90)
 				{
 					log.info("duze " + arg0.getKeyChar());
-					Utils.Output.append(arg0.getKeyChar());
+					Character chara = Character.valueOf(arg0.getKeyChar());
+					chara = chara.toUpperCase(chara.charValue());
+					cipher(chara.charValue());
 					
 					OutputTextPane.setOutputArea("" +arg0.getKeyChar());
 				}else if (arg0.getKeyChar() >= 97 && arg0.getKeyChar() <= 122)
 				{
 					log.info("male " + arg0.getKeyChar());
+					cipher(arg0.getKeyChar());
 					OutputTextPane.setOutputArea(String.valueOf(arg0.getKeyChar()).toUpperCase());
 				}else
 					log.info("coœ innego" + arg0.getKeyChar());
@@ -79,6 +83,12 @@ public class InputTextPane extends JPanel implements IInputTextPane{
 			}
 		});
 		
+	}
+	
+	public static void cipher(char c)
+	{
+		Enigma enigma = Enigma.getInstance();
+		enigma.cipher(c);
 	}
 	
 	public static void setText(String str)
