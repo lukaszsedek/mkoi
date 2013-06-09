@@ -66,14 +66,6 @@ public class Rotor implements RotorInterface{
 		return alphabetList;
 	}
 
-	public ArrayList<String> getRotor() {
-		return rotor;
-	}
-
-	public void setRotor(ArrayList<String> rotor) {
-		this.rotor = rotor;
-	}
-
 	public void setAlphabetList(ArrayList<String> alphabetList) {
 		this.alphabetList = alphabetList;
 	}

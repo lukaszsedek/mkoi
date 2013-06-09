@@ -174,7 +174,7 @@ public class MKOICenter extends JPanel {
 
 		// ROTOR 3 lustro
 		Rotor rotor3 = enigma.getRotor3();
-		ArrayList<String> rotor3List = rotor3.getRotor();
+		ArrayList<String> rotor3List = rotor3.getAlphabetList();
 		for (String string : rotor3List) {
 			lmRot3.addElement(string);
 		}
@@ -185,7 +185,7 @@ public class MKOICenter extends JPanel {
 
 		// ROTOR 2
 		Rotor rotor2 = enigma.getRotor2();
-		ArrayList<String> rotor2List = rotor2.getRotor();
+		ArrayList<String> rotor2List = rotor2.getAlphabetList();
 		for (String string : rotor2List) {
 			lmRot2.addElement(string);
 		}
@@ -196,7 +196,7 @@ public class MKOICenter extends JPanel {
 
 		// ROTOR 1
 		Rotor rotor1 = enigma.getRotor1();
-		ArrayList<String> rotor1List = rotor1.getRotor();
+		ArrayList<String> rotor1List = rotor1.getAlphabetList();
 		for (String string : rotor1List) {
 			lmRot1.addElement(string);
 		}
