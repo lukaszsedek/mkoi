@@ -127,6 +127,8 @@ public  class Enigma implements EnigmaInterface {
         {
             rotor3.move();
             
+            log.info("rotore3 A: " + rotor3.getCurrentAlphabet().toString() );
+            log.info("rotore3 R: " + rotor3.getPositonNormal() + "  "+rotor3.getPosition()+"  "+rotor3.getCurrentRotor().toString() );
                         
             if( rotor3.getPosition() == rotor3.getTurnoverPositions() )
             {         
