@@ -14,17 +14,52 @@ import pl.edu.pw.tele.enigma.Enigma;
 import pl.edu.pw.tele.enigma.Reflector;
 import pl.edu.pw.tele.enigma.Rotor;
 
+/**
+ * Central containter for Enigma graphic elements
+ * @author Lukasz Sedek
+ *
+ */
 public class MKOICenter extends JPanel {
 
-	Font font = new Font("Arial", Font.PLAIN, 14);
-	static Logger log = Logger.getLogger(MKOICenter.class.getName());
-	static JList<String> reflectorAl;
-	static JList<String> reflector;
+	/**
+	 * Font for titles
+	 */
+	protected Font font = new Font("Arial", Font.BOLD, 14);
+	/**
+	 * Log4j logger instance
+	 */
+	private static Logger log = Logger.getLogger(MKOICenter.class.getName());
+	/**
+	 * Relfector Alhpabet List 
+	 */
+	protected static JList<String> reflectorAl;
+	/**
+	 * Reflector settings List
+	 */
+	protected static JList<String> reflector;
+	/**
+	 * rotor number 1 settings
+	 */
 	protected static JList<String> rotor1;
+	/**
+	 * rotor number 1 alphabet
+	 */
 	protected static JList<String> rotor1Al;
+	/**
+	 * rotor number 2 settings List
+	 */
 	protected static JList<String> rotor2;
+	/**
+	 * rotor number 2 alhpabet List
+	 */
 	protected static JList<String> rotor2Al;
+	/**
+	 * rotor number 3 settings List
+	 */
 	protected static JList<String> rotor3;
+	/**
+	 * Rotor number 3 alhpabet List
+	 */
 	protected static JList<String> rotor3Al;
 
 	// LUSTRA

@@ -5,43 +5,45 @@ import java.util.logging.Logger;
 
 /**
  * 
- * @author Lukasz
- * Klasa, która odpowiada za przedstawienie reflektora
+ * @author Lukasz Klasa, która odpowiada za przedstawienie reflektora
  */
 public class Reflector implements ReflectorInterface {
 
+	/**
+	 * Log4J instance
+	 */
 	Logger log = Logger.getLogger(Reflector.class.getName());
 
 	/**
-	 * Reflector jako tablica intów.
+	 * Reflector as List<String> of beginnning settings
 	 */
 	protected ArrayList<String> reflector = new ArrayList<String>();
+
+	/**
+	 * Alhpabet as ArrayList<String>
+	 */
 	protected ArrayList<String> alphabet = Enigma.getInstance().getAlphabet();
-	
-	
-	
+
 	/**
 	 * Przechowywana wartoœæ d³ugoœci s³ownia.<br>
 	 * Jest to nic innego jak d³ugoœæ tablicy reflektora
 	 */
 	protected int size = 0;
-	
+
 	/**
 	 * Twór by konstruktor Reflektor(String,int) siê nie wywali³
 	 */
-	public Reflector()
-	{
-		//Musi byæ pusty. Nic nie implementujemy.
+	public Reflector() {
+		// Musi byæ pusty. Nic nie implementujemy.
 	}
-	
+
 	/**
 	 * Konstruktor do wczytywania parametrów z pliku tekstowego
 	 */
-	public Reflector(String s)
-	{
+	public Reflector(String s) {
 		parse(s);
 	}
-	
+
 	/**
 	 * Parser. S³u¿y do wczytywania wartoœæi przez parametry aktualne
 	 */
@@ -49,17 +51,12 @@ public class Reflector implements ReflectorInterface {
 	public void parse(String s) {
 		log.info("Reflector.alfabet = " + alphabet.toString());
 		log.info("Reflector.s = " + s);
-		for(int i = 0 ; i < s.length(); i++)
-		{
+		for (int i = 0; i < s.length(); i++) {
 			reflector.add(String.valueOf(s.charAt(i)));
 		}
-		
+
 		log.info("Reflector.reflector = " + reflector.toString());
 	}
-
-
-        
-
 
 	public ArrayList<String> getReflector() {
 		return reflector;
@@ -84,27 +81,26 @@ public class Reflector implements ReflectorInterface {
 	public void setSize(int size) {
 		this.size = size;
 	}
-        
-        @Override
-        public char conversion(char c)
-        {   
-            int index= -1;
-            for(int i = 0 ; i < alphabet.size(); ++i)
-		{       
-                        
-			if(Character.toString(c).equals(alphabet.get(i)))
-			{
+
+	/**
+	 * @author Marcin Toczko
+	 * Conversion for Enigma
+	 */
+	@Override
+	public char conversion(char c) {
+		int index = -1;
+		for (int i = 0; i < alphabet.size(); ++i) {
+
+			if (Character.toString(c).equals(alphabet.get(i))) {
 				index = i;
 			}
 		}
-            
-            if(index < 0 )
-            {
-                log.info("Nie ma takiego znaku w alfabecie. !! uwaga ma³a litera !!");
-            }
-            
-            return reflector.get(index).charAt(0);
-        }
 
+		if (index < 0) {
+			log.info("Nie ma takiego znaku w alfabecie. !! uwaga ma³a litera !!");
+		}
+
+		return reflector.get(index).charAt(0);
+	}
 
 }

@@ -17,16 +17,16 @@ public class MainFrame extends JFrame {
 	/**
 	 * Window width <br>
 	 */
-	protected int _width = 1024;
+	protected final int _width = 1024;
 	/**
 	 * Window high<br>
 	 */
-	protected int _high = 768;
+	protected final int _high = 768;
 	
 	/**
 	 * Window title
 	 */
-	protected final String title = "MKOI projekt";
+	protected final String title = "EGNIMA project";
 	
 	/**
 	 * Menu "has-reference"
@@ -72,9 +72,6 @@ public class MainFrame extends JFrame {
 		
 		
 		setTitle(title);
-		//menu = new MkoiMenu();
-		//setJMenuBar(menu);
-		
 		/**
 		 * Add default pane to Frame.<br>
 		 * Explanation: avoiding JFrame overloading

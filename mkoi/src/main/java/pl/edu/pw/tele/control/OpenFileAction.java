@@ -6,6 +6,11 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 
+/**
+ * @deprecated
+ * @author Lukasz Sedek
+ *
+ */
 public class OpenFileAction implements ActionListener{
 	
 	public OpenFileAction() {
