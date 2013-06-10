@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
- * 
- * @author Lukasz Klasa, która odpowiada za przedstawienie reflektora
+ * Class which acts as enigma Reflector. Within application there is only one instance of thats
+ * @author Lukasz Sedek
+ * @see pl.edu.pw.tele.frontend.MkoiContentPane
  */
 public class Reflector implements ReflectorInterface {
 
@@ -25,27 +26,21 @@ public class Reflector implements ReflectorInterface {
 	protected ArrayList<String> alphabet = Enigma.getInstance().getAlphabet();
 
 	/**
-	 * Przechowywana wartoœæ d³ugoœci s³ownia.<br>
-	 * Jest to nic innego jak d³ugoœæ tablicy reflektora
 	 */
 	protected int size = 0;
 
 	/**
-	 * Twór by konstruktor Reflektor(String,int) siê nie wywali³
 	 */
 	public Reflector() {
-		// Musi byæ pusty. Nic nie implementujemy.
 	}
 
 	/**
-	 * Konstruktor do wczytywania parametrów z pliku tekstowego
 	 */
 	public Reflector(String s) {
 		parse(s);
 	}
 
 	/**
-	 * Parser. S³u¿y do wczytywania wartoœæi przez parametry aktualne
 	 */
 	@Override
 	public void parse(String s) {
@@ -83,7 +78,6 @@ public class Reflector implements ReflectorInterface {
 	}
 
 	/**
-	 * @author Marcin Toczko
 	 * Conversion for Enigma
 	 */
 	@Override
@@ -97,7 +91,7 @@ public class Reflector implements ReflectorInterface {
 		}
 
 		if (index < 0) {
-			log.info("Nie ma takiego znaku w alfabecie. !! uwaga ma³a litera !!");
+			log.info("Nie ma takiego znaku w alfabecie. !! uwaga mala litera !!");
 		}
 
 		return reflector.get(index).charAt(0);

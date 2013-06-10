@@ -1,5 +1,12 @@
 package pl.edu.pw.tele.enigma;
 
+/**
+ * Simple Interface for Reflector class.
+ * override all methods.
+ * 
+ * @author Lukasz Sedek
+ *
+ */
 public interface ReflectorInterface {
 
 	/**
@@ -10,8 +17,6 @@ public interface ReflectorInterface {
 
 	/**
 	 * Convert
-	 * @param c
-	 * @return
 	 */
 	public char conversion(char c);
 }

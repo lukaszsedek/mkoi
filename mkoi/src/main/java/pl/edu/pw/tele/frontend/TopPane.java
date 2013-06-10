@@ -5,9 +5,21 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * This class provices container for top side of GUI.
+ * Layout based on traditional BorderLayout.
+ * <p>
+ * This pane contains anly big logo named "Enigma".
+ * 
+ * @author Lukasz Sedek
+ *
+ */
 public class TopPane extends JPanel{
 
 	private JLabel lab = new JLabel("ENIGMA");
+	/**
+	 * Default constructor.
+	 */
 	public TopPane()
 	{
 		add(lab);

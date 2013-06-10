@@ -41,7 +41,6 @@ public class FileReadIO {
 
 	/**
 	 * Previously it was run method. Now it's static method with implemented parsing Properties from file
-	 * @author Lukasz Sedek
 	 */
 	public static void go() {
 		log.info( "Loading file " + Utils.FILENAME_INTPUT + " in progress...");

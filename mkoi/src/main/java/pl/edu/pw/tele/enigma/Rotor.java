@@ -87,7 +87,6 @@ public class Rotor implements RotorInterface {
 
 	/**
 	 * Position getter
-	 * @return
 	 */
 	public int getPosition() {
 		return position;

@@ -59,7 +59,6 @@ public  class Enigma implements EnigmaInterface {
 
 	/**
 	 * Setter for reflector. Similiar to others setters and getters.
-	 * @param Reflector
 	 */
 	@Override
 	public void setReflector(Reflector reflector) {
@@ -77,19 +76,12 @@ public  class Enigma implements EnigmaInterface {
 
 	/**
 	 * Another setter for rotor number 1
-	 * @author Marcin Toczko
-	 * @param Rotor rotor1 
-	 * @param String start. Reference to start
-	 * @param String turn. Reference to turn rotor
 	 */
-	@Override
 	public void setRotor1(String rotor1, String start, String turn) {
 		this.rotor1 = new Rotor(rotor1, start, turn);
 	}
 
 	/**
-	 * @author Lukasz Sedek
-	 * @return Rotor number 2 reference
 	 */
 	@Override
 	public Rotor getRotor2() {
@@ -98,10 +90,6 @@ public  class Enigma implements EnigmaInterface {
 
 	/**
 	 * Another setter for rotor number 2
-	 * @author Marcin Toczko
-	 * @param Rotor rotor1 
-	 * @param String start. Reference to start
-	 * @param String turn. Reference to turn rotor
 	 */
 	@Override
 	public void setRotor2(String rotor2, String start, String turn) {
@@ -110,8 +98,6 @@ public  class Enigma implements EnigmaInterface {
 
 
 	/**
-	 * @author Lukasz Sedek
-	 * @return Rotor number 3 reference
 	 */
 	public Rotor getRotor3() {
 		return rotor3;
@@ -119,10 +105,6 @@ public  class Enigma implements EnigmaInterface {
 
 	/**
 	 * Another setter for rotor number 3
-	 * @author Marcin Toczko
-	 * @param Rotor rotor1 
-	 * @param String start. Reference to start
-	 * @param String turn. Reference to turn rotor
 	 */
 	@Override
 	public void setRotor3(String rotor3, String start, String turn) {
@@ -134,7 +116,7 @@ public  class Enigma implements EnigmaInterface {
 	 * We used singleton pattern to obtain only one enigma instance within application scope. 
 	 * </b>
 	 * 
-	 * @return Enigma instance
+	 * @return Enigma 
 	 *         
 	 */
 	public static Enigma getInstance() {
@@ -156,8 +138,6 @@ public  class Enigma implements EnigmaInterface {
 	}
 
 	/**
-	 * @author Lukasz Sedek
-	 * @return Return Array<String> as alphabet
 	 */
 	@Override
 	public ArrayList<String> getAlphabet() {
@@ -165,9 +145,6 @@ public  class Enigma implements EnigmaInterface {
 	}
 
 	/**
-	 * setter for alphabet 
-	 * @author Lukasz Sedek, Marcin Toczko
-	 * @param arraylist. Input must be Java List object.
 	 */
 	public void setAlphabet(ArrayList<String> arraylist) {
 		this.alphabet = arraylist;
@@ -176,7 +153,6 @@ public  class Enigma implements EnigmaInterface {
 
 	/**
 	 * helping method for creating Reflector
-	 * @author Lukasz Sedek, Marcin Toczko
 	 */
 	@Override
 	public void createReflector(String s) {
@@ -186,9 +162,7 @@ public  class Enigma implements EnigmaInterface {
 	}
 
 	/**
-	 * @author Lukasz Sedek, Marcin Toczko
 	 * Main method for ciphering enigma's algorithm single letter. 
-	 * @param s - single letter. Must be char primitive 
 	 */
 	@Override
 	public char cipher(char s) {
@@ -208,7 +182,6 @@ public  class Enigma implements EnigmaInterface {
 	}
         
 	/**
-	 * @author Lukasz Sedek, Marcin Toczko
 	 * Moves rotor to up
 	 */
         private void rotate()

@@ -103,7 +103,7 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 					log.info("male " + arg0.getKeyChar());
 					cipher(Character.toUpperCase(arg0.getKeyChar()));
 				} else
-					log.info("coœ innego" + arg0.getKeyChar());
+					log.finest("other character: " + arg0.getKeyChar());
 			}
 
 			@Override
