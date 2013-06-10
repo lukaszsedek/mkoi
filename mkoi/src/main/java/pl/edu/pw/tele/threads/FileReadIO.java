@@ -60,6 +60,7 @@ public class FileReadIO {
 	       enigma.setRotor3(prop.getProperty("rotor2"), prop.getProperty("rotor2_start"), prop.getProperty("rotor2_turn"));
 	       
 	        fis.close();
+	        InputTextPane.enableInput(true);	        
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

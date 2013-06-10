@@ -40,6 +40,7 @@ public class OutputTextPane extends JPanel{
 
 	public OutputTextPane()
 	{
+		title.setFont(new Font("Arial", Font.BOLD, 14));
 		setLayout((LayoutManager) new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(Box.createRigidArea(new Dimension(0,5)));
 		setBorder( new EmptyBorder( 3, 3, 3, 3 ) );

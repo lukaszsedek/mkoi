@@ -85,7 +85,6 @@ public class ButtonsPane extends JPanel{
 		
 		// add references to GUI layout
 		add(openFileButton);
-		
 		add(finishProgram);
 
 		
