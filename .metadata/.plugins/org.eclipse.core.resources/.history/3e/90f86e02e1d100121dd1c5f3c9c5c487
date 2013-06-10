@@ -101,7 +101,7 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 
 				} else if (arg0.getKeyChar() >= 97 && arg0.getKeyChar() <= 122) {
 					log.info("male " + arg0.getKeyChar());
-					cipher(Character.toUpperCase(arg0.getKeyChar()));
+					cipher(arg0.getKeyChar());
 				} else
 					log.info("coœ innego" + arg0.getKeyChar());
 			}
