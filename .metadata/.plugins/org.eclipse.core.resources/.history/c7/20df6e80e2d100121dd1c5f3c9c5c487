@@ -1,0 +1,20 @@
+package pl.edu.pw.tele;
+
+/**
+ * Helping class for some additional variables like filename (total path to filename), Input text buffer (thread safe) and Output buffer ( thread safe too)
+ * 
+ * @author Lukasz Sedek
+ * @version 0.1
+ * 
+ *
+ */
+public class Utils {
+	
+
+	
+	public static String FILENAME_INTPUT;
+	public static StringBuffer Input = new StringBuffer();
+	public static StringBuffer Output = new StringBuffer();
+	public static boolean LOADED = false;
+
+}

@@ -1,0 +1,15 @@
+package pl.edu.pw.tele.enigma;
+
+public interface EnigmaInterface {
+
+	/**
+	 * 
+	 * @param s ci¹g alfabetu
+	 * @param i d³ugoœæ alfabetu
+	 */
+	void createReflector(String s);
+	char cipher(char s);
+	public Reflector getReflector();
+	void setReflector(Reflector reflector);
+	public Rotor getRotor1();
+}
