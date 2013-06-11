@@ -2,11 +2,17 @@ package pl.edu.pw.tele.frontend;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import pl.edu.pw.tele.Utils;
 
 public class MkoiContentPane extends JPanel {
 
@@ -19,15 +25,14 @@ public class MkoiContentPane extends JPanel {
 	public MkoiContentPane()
 	{
 		setLayout(new BorderLayout());
-		
-		//setBackground(Color.CYAN);
-		//Border border = BorderFactory.createBevelBorder(1, Color.BLACK, Color.BLUE);
-		//setBorder(border);
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.add(BorderLayout.CENTER, center);
 		add(BorderLayout.SOUTH, buttonsPane);
 		add(BorderLayout.WEST, inputTextPane);
 		add(BorderLayout.EAST, outputTextPane);
 		add(BorderLayout.NORTH, topPane);
-		add(BorderLayout.CENTER, center);
+		add(BorderLayout.CENTER, centerPanel);
 		
 	}
 

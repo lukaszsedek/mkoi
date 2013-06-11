@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -80,9 +81,12 @@ public class ButtonsPane extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				InputTextPane.inputArea.setText("");
-				OutputTextPane.outputArea.setText("");
-				// TODO create re-loading
+				if (!Utils.FILENAME_INTPUT.isEmpty()) {
+					InputTextPane.inputArea.setText("");
+					OutputTextPane.outputArea.setText("");
+					FileReadIO io = new FileReadIO();
+					io.go();
+				}
 			}
 		});
 
@@ -93,7 +97,7 @@ public class ButtonsPane extends JPanel {
 
 	}
 
-	private static JButton createSimpleButton(String text) {
+	public static JButton createSimpleButton(String text) {
 		JButton button = new JButton(text);
 		button.setHorizontalAlignment(JButton.LEADING); // optional
 		// button.setBorderPainted(false);

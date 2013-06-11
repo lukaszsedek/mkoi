@@ -3,6 +3,9 @@ package pl.edu.pw.tele.enigma;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import pl.edu.pw.tele.Utils;
+import pl.edu.pw.tele.frontend.TopPane;
+
 /**
  * Java class that acts as ENIGMA machine.<br>
  * Used JAVA singleton pattern. Please do not change any methods without consulting with design team<br>
@@ -187,6 +190,7 @@ public  class Enigma implements EnigmaInterface {
         private void rotate()
         {
             rotor3.move();
+           TopPane.R3button.setText("" + rotor3.getPosition());
             
             log.info("rotore3 A: " + rotor3.getCurrentAlphabet().toString() );
             log.info("rotore3 R: " + rotor3.getPositonNormal() + "  "+rotor3.getPosition()+"  "+rotor3.getCurrentRotor().toString() );
@@ -194,6 +198,7 @@ public  class Enigma implements EnigmaInterface {
             if( rotor3.getPosition() == rotor3.getTurnoverPositions() )
             {         
                 rotor2.move();
+                TopPane.R2button.setText("" + rotor2.getPosition());
                 log.info("rotore 2 + 1: ");
             }
             
@@ -201,6 +206,7 @@ public  class Enigma implements EnigmaInterface {
             {
                 log.info("rotore1 move");
                 rotor1.move();
+                TopPane.R1button.setText("" + rotor1.getPosition());
                 rotor2.restart();
             }
             

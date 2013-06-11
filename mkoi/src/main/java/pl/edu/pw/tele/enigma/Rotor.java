@@ -128,7 +128,6 @@ public class Rotor implements RotorInterface {
 
 		position = (position + 1) % alphabetList.size();
 		count = (count + 1) % 255;
-
 	}
 
 	public void restart() {

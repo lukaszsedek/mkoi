@@ -12,7 +12,7 @@ public class Utils {
 	/**
 	 *  filename
 	 */
-	public static String FILENAME_INTPUT;
+	public static String FILENAME_INTPUT = "";
 	/**
 	 * Input String Buffer. used for thread safe.  
 	 */
@@ -26,5 +26,6 @@ public class Utils {
 	 * @deprecated 
 	 */
 	public static boolean LOADED = false;
+	
 
 }

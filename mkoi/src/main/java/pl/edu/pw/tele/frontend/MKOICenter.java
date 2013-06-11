@@ -199,10 +199,13 @@ public class MKOICenter extends JPanel {
         // ROTOR 3 lustro
         Rotor rotor3 = enigma.getRotor3();
         ArrayList<String> rotor3List = rotor3.getRotor();
+        
+        lmRot3.clear();
         for (String string : rotor3List) {
             lmRot3.addElement(string);
         }
         ArrayList<String> rotor3AlphabetsList = rotor3.getAlphabetList();
+        lmRot3Al.clear();
         for (String string : rotor3AlphabetsList) {
             lmRot3Al.addElement(string);
         }
@@ -210,10 +213,12 @@ public class MKOICenter extends JPanel {
         // ROTOR 2
         Rotor rotor2 = enigma.getRotor2();
         ArrayList<String> rotor2List = rotor2.getRotor();
+        lmRot2.clear();
         for (String string : rotor2List) {
             lmRot2.addElement(string);
         }
         ArrayList<String> rotor2AlphabetsList = rotor2.getAlphabetList();
+        lmRot2Al.clear();
         for (String string : rotor2AlphabetsList) {
             lmRot2Al.addElement(string);
         }
@@ -221,10 +226,12 @@ public class MKOICenter extends JPanel {
         // ROTOR 1
         Rotor rotor1 = enigma.getRotor1();
         ArrayList<String> rotor1List = rotor1.getRotor();
+        lmRot1.clear();
         for (String string : rotor1List) {
             lmRot1.addElement(string);
         }
         ArrayList<String> rotor1AlphabetsList = rotor1.getAlphabetList();
+        lmRot1Al.clear();
         for (String string : rotor1AlphabetsList) {
             lmRot1Al.addElement(string);
         }
@@ -232,12 +239,13 @@ public class MKOICenter extends JPanel {
         // REFLECTOR
         Reflector reflector = enigma.getReflector();
         ArrayList<String> reflectorList = reflector.getReflector();
+        lmRef.clear();
         for (String string : reflectorList) {
             lmRef.addElement(string);
         }
 
         ArrayList<String> reflectorAlhpabetList = reflector.getAlphabet();
-
+        lmRefAl.clear();
         for (String string : reflectorAlhpabetList) {
             lmRefAl.addElement(string);
         }
