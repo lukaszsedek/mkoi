@@ -6,6 +6,6 @@
 *.ear
 
 .metadata
-.metadata
+.metadata/*
 target
 target/*
