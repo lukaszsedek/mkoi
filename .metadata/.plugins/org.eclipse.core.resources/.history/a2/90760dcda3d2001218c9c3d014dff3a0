@@ -263,12 +263,6 @@ public class MKOICenter extends JPanel {
 
 		Enigma enigma = Enigma.getInstance();
 		Rotor rotor3 = enigma.getRotor3();
-		Rotor rotor2 = enigma.getRotor2();
-		Rotor rotor1 = enigma.getRotor1();
-		
-		ArrayList<String> rotor3List = rotor3.getCurrentRotor();
-		ArrayList<String> rotor3AlList = rotor3.getCurrentAlphabet();
-		
 		
 		MKOICenter.rotor3Al_.setSelectedIndex(rotor3.getPosition());
 		MKOICenter.rotor3_.setSelectedIndex(rotor3.getPosition());

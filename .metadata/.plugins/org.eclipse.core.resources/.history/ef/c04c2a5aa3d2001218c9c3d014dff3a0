@@ -106,7 +106,7 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 					log.finest("other character: " + arg0.getKeyChar());
 				}
 				
-				MKOICenter.refresh();
+				MKOICenter.reload();
 			}
 
 			@Override
