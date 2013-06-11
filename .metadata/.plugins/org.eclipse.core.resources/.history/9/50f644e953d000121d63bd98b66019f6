@@ -1,7 +1,0 @@
-package pl.edu.pw.tele.frontend;
-
-import javax.swing.JPanel;
-
-public class OutputTextPane extends JPanel {
-
-}
