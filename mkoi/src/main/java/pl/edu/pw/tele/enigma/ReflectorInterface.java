@@ -18,5 +18,5 @@ public interface ReflectorInterface {
 	/**
 	 * Convert
 	 */
-	public char conversion(char c);
+	public int conversion(int i);
 }

@@ -21,8 +21,9 @@ public class Rotor implements RotorInterface {
 
 	int position = 0;
 	int turnover_positions = 0;
-	int positon_normal = 0;
-	int positon_inver = 0;
+	
+        
+        int in_pos, out_pos, in_pos_invert, out_pos_invert;
 
 	/**
 	 * Alphabet reference
@@ -141,96 +142,63 @@ public class Rotor implements RotorInterface {
 	}
 
 	@Override
-	public char conversion(char c) {
-		int index = -1;
-
-		c = rotation_plus(c);
-
-		for (int i = 0; i < alphabetList.size(); ++i) {
-			if (Character.toString(c).equals(alphabetList.get(i))) {
-				index = i;
-				positon_normal = i;
-			}
-		}
-
-		return rotation_minus(rotor.get(index).charAt(0));
-	}
-
-	public char conversionInvert(char c) {
-		int index = -1;
-
-		c = rotation_plus(c);
-
-		for (int i = 0; i < alphabetList.size(); ++i) {
-			if (Character.toString(c).equals(rotor.get(i))) {
-				index = i;
-				positon_inver = i;
-			}
-		}
-
-		return rotation_minus(alphabetList.get(index).charAt(0));
-	}
-
-	private char rotation_plus(char c) {
-		int tmp;
-		int valueCharA = (int) ('A');
-
-		tmp = (int) c - valueCharA;
-		tmp = (tmp + position) % alphabetList.size();
-		tmp = tmp + valueCharA;
-		return (char) tmp;
-
-	}
-
-	private char rotation_minus(char c) {
-		int tmp;
-		int valueCharA = (int) ('A');
-
-		tmp = (int) c - valueCharA;
-
-		if ((tmp - position) < 0) {
-			tmp = (alphabetList.size() + tmp - position) % alphabetList.size();
-		} else {
-			tmp = (tmp - position) % alphabetList.size();
-		}
-
-		tmp = tmp + valueCharA;
-		return (char) tmp;
-
-	}
+        public int conversion(int i) {
+            in_pos = i;
+        
+          return  out_pos = getCurrentAlphabet().indexOf(getCurrentRotor().get(i));
+            
+        }
+        
+        public int conversionInvert(int i ) {
+            in_pos_invert = i;
+            return  out_pos_invert =  getCurrentRotor().indexOf(getCurrentAlphabet().get(i));
+        }
+        
+	
 
 	public ArrayList<String> getCurrentAlphabet() {
-		ArrayList<String> cAlphabet = new ArrayList<String>();
-		char tmp_char;
-
-		for (int i = 0; i < alphabetList.size(); ++i) {
-			tmp_char = alphabetList.get(i).charAt(0);
-			cAlphabet.add(Character.toString(rotation_plus(tmp_char)));
-
-		}
+		ArrayList<String> cAlphabet = new ArrayList<String>(alphabetList);
+		
+                for(int i =0; i < position ; ++i)
+                {
+                
+                    cAlphabet.add(cAlphabet.get(0));
+                    cAlphabet.remove(0);
+                
+                }
 
 		return cAlphabet;
 	}
 
 	public ArrayList<String> getCurrentRotor() {
-		ArrayList<String> cRotor = new ArrayList<String>();
-		char tmp_char;
-
-		for (int i = 0; i < rotor.size(); ++i) {
-			tmp_char = rotor.get(i).charAt(0);
-			cRotor.add(Character.toString(rotation_minus(tmp_char)));
-
-		}
-
+		ArrayList<String> cRotor = new ArrayList<String>(rotor);
+		
+                
+                for(int i =0; i < position; ++i)
+                {
+                
+                    cRotor.add(cRotor.get(0));
+                    cRotor.remove(0);
+                
+                }
+       
 		return cRotor;
 	}
 
-	public int getPositonNormal() {
-		return positon_normal;
+	public int getInPosition() {
+		return in_pos;
 	}
 
-	public int getPositonInver() {
-		return positon_inver;
+	public int getOutPosition() {
+		return out_pos;
+	}
+        
+        public int getInPositionInvert() {
+		return in_pos_invert;
+	}
+
+	public int getOutPositionInvert() {
+		return out_pos_invert;
 	}
 
 }

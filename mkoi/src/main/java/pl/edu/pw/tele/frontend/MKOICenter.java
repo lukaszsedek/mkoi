@@ -62,6 +62,11 @@ public class MKOICenter extends JPanel {
      * Rotor number 3 alhpabet List
      */
     protected static JList<String> rotor3Al;
+    
+    protected static JList<String> out_Al;
+    protected static JList<String> in_Al;
+    
+    
     // LUSTRA
     protected static JList<String> rotor1_;
     protected static JList<String> rotor1Al_;
@@ -78,11 +83,14 @@ public class MKOICenter extends JPanel {
     static public DefaultListModel<String> lmRot2Al;
     static public DefaultListModel<String> lmRot3;
     static public DefaultListModel<String> lmRot3Al;
+    
 
     public MKOICenter() {
 
         // LISTY
         // Reflector
+        
+       
         lmRefAl = new DefaultListModel<String>();
         lmRef = new DefaultListModel<String>();
 
@@ -109,7 +117,10 @@ public class MKOICenter extends JPanel {
         rotor3Al.setBackground(Color.CYAN);
 
         // lustrzane odbicia
-
+        in_Al = new JList<String>(lmRefAl);
+        out_Al = new JList<String>(lmRefAl);
+        
+        
         rotor1_ = new JList<String>(lmRot1);
         rotor1_.setBackground(Color.YELLOW);
         rotor1Al_ = new JList<String>(lmRot1Al);
@@ -120,41 +131,52 @@ public class MKOICenter extends JPanel {
         rotor3_.setBackground(Color.CYAN);
         rotor3Al_ = new JList<String>(lmRot3Al);
         rotor3Al_.setBackground(Color.CYAN);
-
-        add(rotor3Al_);
+        
+        add(out_Al);
+        
+        add(new JLabel("    "));
+        
         add(rotor3_);
+        add(rotor3Al_);
+        
 
         add(new JLabel("    "));
-
-        add(rotor2Al_);
+        
         add(rotor2_);
+        add(rotor2Al_);
+        
 
         add(new JLabel("    "));
-
-        add(rotor1Al_);
+        
         add(rotor1_);
+        add(rotor1Al_);
+        
         add(new JLabel("    "));
         // REFLECTOR
-
-        add(reflector);
         add(reflectorAl);
+        add(reflector);
+        
         add(new JLabel("    "));
 
         // ROTOR 1
-
-        add(rotor1);
         add(rotor1Al);
+        add(rotor1);
+        
         add(new JLabel("    "));
 
         // ROTOR 2
-
-        add(rotor2);
         add(rotor2Al);
+        add(rotor2);
+        
         add(new JLabel("    "));
 
         // ROTOR3
-        add(rotor3);
         add(rotor3Al);
+        add(rotor3);
+        
+        add(new JLabel("    "));
+        
+        add(in_Al);
 
         // WYGLAD
 
@@ -172,6 +194,9 @@ public class MKOICenter extends JPanel {
         MKOICenter.rotor2.setEnabled(false);
         MKOICenter.reflectorAl.setEnabled(false);
         MKOICenter.reflector.setEnabled(false);
+        MKOICenter.in_Al.setEnabled(false);
+        MKOICenter.out_Al.setEnabled(false);
+
 
         MKOICenter.rotor3Al_.setFont(font);
         MKOICenter.rotor3_.setFont(font);
@@ -187,6 +212,8 @@ public class MKOICenter extends JPanel {
         MKOICenter.rotor2.setFont(font);
         MKOICenter.reflectorAl.setFont(font);
         MKOICenter.reflector.setFont(font);
+        MKOICenter.in_Al.setFont(font);
+        MKOICenter.out_Al.setFont(font);
 
     }
 
@@ -263,7 +290,8 @@ public class MKOICenter extends JPanel {
         MKOICenter.rotor2_.setSelectedIndex(rotor2.getPosition());
         MKOICenter.rotor2Al.setSelectedIndex(rotor2.getPosition());
         MKOICenter.rotor2.setSelectedIndex(rotor2.getPosition());
-
+        
+        refresh();
     }
 
     public static void refresh() {
@@ -272,6 +300,7 @@ public class MKOICenter extends JPanel {
         Rotor rotor3 = enigma.getRotor3();
         Rotor rotor2 = enigma.getRotor2();
         Rotor rotor1 = enigma.getRotor1();
+        Reflector reflector = enigma.getReflector();
 
         ArrayList<String> rotor1List = rotor1.getCurrentRotor();
         ArrayList<String> rotor1AlList = rotor1.getCurrentAlphabet();
@@ -306,18 +335,29 @@ public class MKOICenter extends JPanel {
         for (String string : rotor1AlList) {
             lmRot1Al.addElement(string);
         }
-
-        MKOICenter.rotor3Al_.setSelectedIndex(rotor3.getPosition());
-        MKOICenter.rotor3_.setSelectedIndex(rotor3.getPosition());
-        MKOICenter.rotor3Al.setSelectedIndex(rotor3.getPosition());
-        MKOICenter.rotor3.setSelectedIndex(rotor3.getPosition());
-        MKOICenter.rotor1Al_.setSelectedIndex(rotor1.getPosition());
-        MKOICenter.rotor1_.setSelectedIndex(rotor1.getPosition());
-        MKOICenter.rotor1Al.setSelectedIndex(rotor1.getPosition());
-        MKOICenter.rotor1.setSelectedIndex(rotor1.getPosition());
-        MKOICenter.rotor2Al_.setSelectedIndex(rotor2.getPosition());
-        MKOICenter.rotor2_.setSelectedIndex(rotor2.getPosition());
-        MKOICenter.rotor2Al.setSelectedIndex(rotor2.getPosition());
-        MKOICenter.rotor2.setSelectedIndex(rotor2.getPosition());
+        
+        MKOICenter.out_Al.setSelectedIndex(rotor3.getInPosition());
+        
+        MKOICenter.rotor3Al_.setSelectedIndex(rotor3.getOutPosition());
+        MKOICenter.rotor3_.setSelectedIndex(rotor3.getInPosition());
+        MKOICenter.rotor3Al.setSelectedIndex(rotor3.getInPositionInvert());
+        MKOICenter.rotor3.setSelectedIndex(rotor3.getOutPositionInvert());
+        
+        MKOICenter.rotor1Al_.setSelectedIndex(rotor1.getOutPosition());
+        MKOICenter.rotor1_.setSelectedIndex(rotor1.getInPosition());
+        MKOICenter.rotor1Al.setSelectedIndex(rotor1.getInPositionInvert());
+        MKOICenter.rotor1.setSelectedIndex(rotor1.getOutPositionInvert());
+        
+        MKOICenter.rotor2Al_.setSelectedIndex(rotor2.getOutPosition());
+        MKOICenter.rotor2_.setSelectedIndex(rotor2.getInPosition());
+        MKOICenter.rotor2Al.setSelectedIndex(rotor2.getInPositionInvert());
+        MKOICenter.rotor2.setSelectedIndex(rotor2.getOutPositionInvert());
+        
+        MKOICenter.in_Al.setSelectedIndex(rotor3.getOutPositionInvert());
+        MKOICenter.out_Al.setSelectedIndex(rotor3.getInPosition());
+        
+        MKOICenter.reflectorAl.setSelectedIndex(reflector.getInPosition());
+        MKOICenter.reflector.setSelectedIndex(reflector.getOutPosition());
+        
     }
 }

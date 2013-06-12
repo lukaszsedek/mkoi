@@ -28,6 +28,8 @@ public class Reflector implements ReflectorInterface {
 	/**
 	 */
 	protected int size = 0;
+        
+        int in_position,out_pososition;
 
 	/**
 	 */
@@ -81,20 +83,20 @@ public class Reflector implements ReflectorInterface {
 	 * Conversion for Enigma
 	 */
 	@Override
-	public char conversion(char c) {
-		int index = -1;
-		for (int i = 0; i < alphabet.size(); ++i) {
+	public int conversion(int i) {
+            
+            in_position = i;
+            
+          return  out_pososition =  alphabet.indexOf( reflector.get(i));
+            
+        }
 
-			if (Character.toString(c).equals(alphabet.get(i))) {
-				index = i;
-			}
-		}
-
-		if (index < 0) {
-			log.info("Nie ma takiego znaku w alfabecie. !! uwaga mala litera !!");
-		}
-
-		return reflector.get(index).charAt(0);
-	}
-
+        public int getInPosition()
+        {
+            return in_position;
+        }
+        public int getOutPosition()
+        {
+            return out_pososition;
+        }
 }

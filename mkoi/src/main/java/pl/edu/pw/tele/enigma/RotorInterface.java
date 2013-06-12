@@ -9,5 +9,5 @@ public interface RotorInterface {
 
 	public int getSize();
 
-	public char conversion(char c);
+	public int conversion(int i);
 }

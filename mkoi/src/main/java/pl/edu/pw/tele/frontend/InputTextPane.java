@@ -91,7 +91,7 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-
+                                
 				// log.info("" + ((int)arg0.getKeyChar()));
 				if (arg0.getKeyChar() >= 65 & arg0.getKeyChar() <= 90) {
 					// log.info("duze " + arg0.getKeyChar());
@@ -105,8 +105,8 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 				} else{
 					log.finest("other character: " + arg0.getKeyChar());
 				}
-				
 				MKOICenter.refresh();
+				
 			}
 
 			@Override

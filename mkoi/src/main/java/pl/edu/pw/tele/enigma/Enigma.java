@@ -169,17 +169,19 @@ public  class Enigma implements EnigmaInterface {
 	 */
 	@Override
 	public char cipher(char s) {
-		
+            
+            int i = alphabet.indexOf(Character.toString(s));
             rotate();
             
-            s = rotor3.conversion(s);
-            s = rotor2.conversion(s);          
-            s = rotor1.conversion(s);            
-            s = reflector.conversion(s);            
-            s = rotor1.conversionInvert(s);            
-            s = rotor2.conversionInvert(s);           
-            s = rotor3.conversionInvert(s);
-           
+            i = rotor3.conversion(i);
+            i = rotor2.conversion(i);          
+            i = rotor1.conversion(i);            
+            i = reflector.conversion(i);            
+            i = rotor1.conversionInvert(i);            
+            i = rotor2.conversionInvert(i);           
+            i = rotor3.conversionInvert(i);
+            
+            s = alphabet.get(i).charAt(0);
 
             return s;
 	}
@@ -190,23 +192,23 @@ public  class Enigma implements EnigmaInterface {
         private void rotate()
         {
             rotor3.move();
-           TopPane.R3button.setText("" + rotor3.getPosition());
-            
-            log.info("rotore3 A: " + rotor3.getCurrentAlphabet().toString() );
-            log.info("rotore3 R: " + rotor3.getPositonNormal() + "  "+rotor3.getPosition()+"  "+rotor3.getCurrentRotor().toString() );
+           TopPane.R3button.setText("" + alphabet.get(rotor3.getPosition()));
+           TopPane.R2button.setText("" + alphabet.get(rotor2.getPosition()));
+           TopPane.R1button.setText("" + alphabet.get(rotor1.getPosition()));
+           
+           
                         
             if( rotor3.getPosition() == rotor3.getTurnoverPositions() )
             {         
                 rotor2.move();
-                TopPane.R2button.setText("" + rotor2.getPosition());
-                log.info("rotore 2 + 1: ");
+             
+                log.info("rotore 2 move");
             }
             
             if( rotor2.getPosition()== rotor2.getTurnoverPositions() && rotor2.getCount() > 25 )
             {
-                log.info("rotore1 move");
-                rotor1.move();
-                TopPane.R1button.setText("" + rotor1.getPosition());
+                log.info("rotore 1 move");
+                rotor1.move();             
                 rotor2.restart();
             }
             
