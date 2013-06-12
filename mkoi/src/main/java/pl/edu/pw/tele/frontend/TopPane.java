@@ -11,7 +11,7 @@ import pl.edu.pw.tele.Utils;
  * This class provices container for top side of GUI.
  * Layout based on traditional BorderLayout.
  * <p>
- * This pane contains anly big logo named "Enigma".
+ * This pane contains rotors current states
  * 
  * @author Lukasz Sedek
  *

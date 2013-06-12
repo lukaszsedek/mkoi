@@ -16,16 +16,38 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
 import pl.edu.pw.tele.Utils;
-
+/**
+ * Class provides fully-formatted output.<p>
+ * The main design concept was to separate enigma engine from visual output.
+ * <br> Enigma appends output to JTextArea object
+ * @author Lukasz Sedek
+ *
+ */
 public class OutputTextPane extends JPanel{
+	/**
+	 * Log4J Logger
+	 */
 	Logger log = Logger.getLogger(InputTextPane.class.getName());
+	/**
+	 * Title label
+	 */
 	protected JLabel title = new JLabel("Output text");
+	/**
+	 * Outout containter
+	 */
 	protected static JTextArea outputArea = new JTextArea(20, 10);
-	
+	/**
+	 * Default getter for JTextArea
+	 * @return outoutArea
+	 */
 	public static JTextArea getOutputArea() {
 		return outputArea;
 	}
 
+	/**
+	 * Setter for OutputArea
+	 * @param s
+	 */
 	public static void setOutputArea(String s) {
 		
 		Document text = outputArea.getDocument();
@@ -38,6 +60,9 @@ public class OutputTextPane extends JPanel{
 		OutputTextPane.outputArea = outputArea;
 	}
 
+	/**
+	 * Default construtor
+	 */
 	public OutputTextPane()
 	{
 		title.setFont(new Font("Arial", Font.BOLD, 14));

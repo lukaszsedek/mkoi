@@ -1,3 +1,35 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{4640685}
+Marian Rejewski.
+\newblock How polish mathematicians broke the enigma cipher.
+\newblock {\em Annals of the History of Computing}, 3(3):213--234, 1981.
+
+\bibitem{Hodges}
+Andrew Hodges.
+\newblock {\em Alan Turing: The Enigma}.
+\newblock Walker \& Company, 2000.
+
+\bibitem{Git}
+Inc GitHub.
+\newblock Github.
+\newblock \url{http://www.test.org/doe/}, June 2013.
+
+\bibitem{wiki}
+Inc Wikipedia.
+\newblock Enigma rotor details.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Enigma_rotor_details#Rotor_wiring_tables},
+  June 2013.
+
+\bibitem{Hamer}
+David~H. Hamer, Geoff Sullivan, and Frode Weierud.
+\newblock Enigma variations: an extended family of machines.
+\newblock {\em Cryptologia}, 22(3):211--229, July 1998.
+
+\bibitem{enigmatut}
+Enigma.
+\newblock enigma v4.3.
+\newblock \url{http://enigmaco.de/enigma/enigma.html}, June 2013.
 
 \end{thebibliography}

@@ -97,6 +97,11 @@ public class ButtonsPane extends JPanel {
 
 	}
 
+	/**
+	 * My own static public method for creating JButton style
+	 * @param text
+	 * @return JButton
+	 */
 	public static JButton createSimpleButton(String text) {
 		JButton button = new JButton(text);
 		button.setHorizontalAlignment(JButton.LEADING); // optional

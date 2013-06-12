@@ -29,10 +29,16 @@ import pl.edu.pw.tele.enigma.Enigma;
  */
 public class InputTextPane extends JPanel implements IInputTextPane {
 
+	/**
+	 * Log4J logger
+	 */
 	Logger log = Logger.getLogger(InputTextPane.class.getName());
 	protected JLabel title = new JLabel("Input text");
 	protected static JTextArea inputArea = new JTextArea(20, 10);
 
+	/**
+	 * Default constructor
+	 */
 	public InputTextPane() {
 		title.setFont(new Font("Arial", Font.BOLD, 14));
 		setLayout((LayoutManager) new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -122,6 +128,10 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 
 	}
 
+	/**
+	 * Main method for one-step ciphering
+	 * @param c
+	 */
 	public static void cipher(char c) {
 		Enigma enigma = Enigma.getInstance();
 
@@ -132,6 +142,10 @@ public class InputTextPane extends JPanel implements IInputTextPane {
 		inputArea.setText(str);
 	}
 
+	/**
+	 * irrelevant GUI feature
+	 * @param b
+	 */
 	public static void enableInput(boolean b) {
 		inputArea.setFocusable(b);
 		inputArea.setEnabled(b);

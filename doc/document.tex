@@ -27,6 +27,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{blindtext}
+\usepackage{graphicx} 
+\usepackage{url}
 
 \linespread{1.3} %interlinia
 \addtolength{\textwidth}{3cm}
@@ -98,50 +100,105 @@ rotorów.
 Zaletą takich algorytmów jest duży okres powtarzalności klucza. Dla szyfratora
 z alfabetem 26 znakowym i liczbą cylindrów k, klucz zostanie powtórzony co
 26k obrotów najwolniejszego cylindra[2].
+\begin{figure}
+\includegraphics[scale=0.8]{rotors.eps}
+\end{figure}
 
+\newpage
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
 
 \section{Opis algorytmu}
+\subsection{Dane wejściowe}
+Przykładowy plik konfiguracyjny:
+\begin{verbatim}
+# PLIK KONFIGURACYJNY
+rozmiar = 26
+alphabet = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+reflector = YRUHQSLDPXNGOKMIEBFZCWVJAT
+liczba_rotorow = 3
+rotor0 = EKMFLGDQVZNTOWYHXUSPAIBRCJ
+rotor0_start = Q
+rotor0_turn = Q
+rotor1 = AJDKSIRUXBLHWTMCQGZNPYFVOE
+rotor1_start = E
+rotor1_turn = E
+rotor2 = BDFHJLCPRTXVZNYEIWGAKMUSQO
+rotor2_start = V
+rotor2_turn = V
 
+\end{verbatim}
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 
-\section{Results and Conclusions}
-
+\section{zastosowania praktyczne implementowanego zagadnienia}
+W dzisiejszych czasach stosowanie algorytmów rotorowych jest rozwiązaniem
+historycznym i z dostępnych źródeł trudno znaleźć przykłady zastosowań w
+istniejących szyfratorach. Natomiast, znaczenie historyczne Enigmy jest tak
+duże, że stanowi cenny materiał dydaktyczny dla potrzeb nauki kryptografii
+i kryptoanalizy\cite{4640685,Hodges}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 
-\section{instrukcja użytkowania programu}
+\section{Instrukcja użytkowania programu}
+Aplikacja została napisana w języku Java. Szkielet programu został
+zautomatyzowany przy pomocy narzędzia maven i wzorca programowania MVC. Do
+stworzenia GUI zastosowane zostały domyślne biblioteki graficzne Swing
+(wbudowane w język Java).
+\subsection{Wymagania}
+\begin{itemize}
+  \item Java JDK wersja 1.7 . Używane są elementy wersji 7 np. JList<E>.
+  \item Maven wersja co najmniej 2.1
+  \item Narzędzie do repozytoriun GIT.
+\end{itemize} 
+\subsection{Instalacja}
+Instalacja została zautomatyzowana. Aby ściągnąć repozytorium na maszynę
+lokalną, niezbędne jest zsynchronizowanie się z repozytorium, które jest
+dostępne pod adresem\\
+\textit{git@github.com:lukaszsedek/mkoi.git}\cite{Git}
+. Instalacja przebiega zgodnie z
+zasadami budowania aplikacji przy użyciu narzędzia maven. Aby stworzyć
+uruchamialny plik \textit{jar}, należy wydać polecenie w katalogu
+\textit{mkoi}
+\begin{verbatim}
+# mvn clear install
+\end{verbatim}
+Następnie należy upewnić się czy został stworzony katalog \textit{target}.
+\subsection{Uruchomienie}
+Program nie zawiera żadnych dodatkowych plików wymaganych do załączenia przy
+uruchamianiu, więc należy wpisać:
+\begin{verbatim}
+# java -jar target/mkoi-0.2.jar
+\end{verbatim}
+Na ekranie pojawi się okno jak na poniższym rysunku. Lewa strona do służy do
+wprowadzania bieżącego tekstu - szyfrowanego tekstu. Natomiast prawe okno służy
+do wyświetlania zaszyfrowanego tekstu z lewej strony. Środek stanowi element
+graficzny przedstawiający aktualne położenie rotorów. Pierwszą czynnością jaką
+użytkownik powinien wykonać, to załadowanie pliku konfiguracyjnego. Następny
+krok to wpisywanie tekstu do szyfrowania. Szyfrowanie odbywa się `w locie`.
+\newpage
+\begin{figure}
+\includegraphics[scale=0.43]{mkoi.eps}
+\end{figure}
 
-temat projektu
-nazwa przedmiotu
-imiona i nazwiska studentów wykonujących projekt
-imię i nazwisko prowadzącego projekt
-semestr w którym realizowany jest projekt
-The most obvious source of experimental uncertainty is the limited precision of the balance. Other potential sources of experimental uncertainty are: the reaction might not be complete; if not enough time was allowed for total oxidation, less than complete oxidation of the magnesium might have, in part, reacted with nitrogen in the air (incorrect reaction); the magnesium oxide might have absorbed water from the air, and thus weigh ``too much." Because the result obtained is close to the accepted value it is possible that some of these experimental uncertainties have fortuitously cancelled one another.
 
 %----------------------------------------------------------------------------------------
 %	Testy
 %----------------------------------------------------------------------------------------
 
 \section{Testy}
-
-\begin{enumerate}
-\begin{item}
-The \emph{atomic weight of an element} is the relative weight of one of its atoms compared to C-12 with a weight of 12.0000000$\ldots$, hydrogen with a weight of 1.008, to oxygen with a weight of 16.00. Atomic weight is also the average weight of all the atoms of that element as they occur in nature.
-\end{item}
-\begin{item}
-The \emph{units of atomic weight} are two-fold, with an identical numerical value. They are g/mole of atoms (or just g/mol) or amu/atom.
-\end{item}
-\begin{item}
-\emph{Percentage discrepancy} between an accepted (literature) value and an experimental value is $\frac{|\mathrm{experimental result} - \mathrm{accepted result}|}{\mathrm{accepted result}}$.
-\end{item}
-\end{enumerate}
+Zostały wykonane testy jedynie funkcjonalne i jednostkowe. Testowanie
+jednostkowe opierało się na debugowaniu stanów rotorów w programie (tzw.
+\textit{grey-box testing}).\\
+Testy funkcjonalne polegały na sprawdzaniu wartości wyjściowych przy znanych
+wartościach wejściowych(pobrane z \cite{wiki, Hamer}).
+Dane te to ustawienia początkowe rotorów, reflektora oraz przesunięcia. Wartości
+te podawane były w pliku konfiguracyjnym i manualnie testowane. Wyniki
+porównywaliśmy z symulatorem Enimgy\cite{enigmatut}.
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
@@ -149,7 +206,7 @@ The \emph{units of atomic weight} are two-fold, with an identical numerical valu
 
 \bibliographystyle{unsrt}
 
-\bibliography{sample}
+\bibliography{bib}
 
 %----------------------------------------------------------------------------------------
 
